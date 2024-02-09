@@ -17,7 +17,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="flex gap-24 md:grid md:grid-cols-2 min-h-screen flex-col p-8 md:p-24">
+    <main className="flex gap-12 md:grid md:grid-cols-2 md:min-h-screen flex-col p-8 md:p-24">
       <div className="flex flex-col grow">
         <p>Jacob Sansbury</p>
         <p className="opacity-50 italic">San Francisco, CA</p>
