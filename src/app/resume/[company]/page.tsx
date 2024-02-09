@@ -1,7 +1,13 @@
-import { RESUME, pageForSlug } from "@/data/resume";
+import {
+  RESUME,
+  nextResumeItem,
+  pageForSlug,
+  prevResumeItem,
+} from "@/data/resume";
 import { DateTime, DateTimeFormatOptions } from "luxon";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { BulletList } from "./BulletList";
+import { ResumeShortcuts } from "./ResumeShortcuts";
 
 interface Props {
   params: { company: string };
@@ -23,6 +29,8 @@ export default function Page({ params }: Props) {
 
   return (
     <div className="p-8 md:p-24 flex flex-col gap-24">
+      <ResumeShortcuts currentResumeItem={params.company} />
+
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl font-light opacity-50">
           {company.jobTitle} at {company.company}
@@ -33,6 +41,10 @@ export default function Page({ params }: Props) {
           {duration.toFormat("y 'years and' M 'months'")})
         </p>
       </div>
+
+      {company.description && (
+        <p className="max-w-3xl">{company.description}</p>
+      )}
 
       {company.bullets && (
         <div className="max-w-3xl">

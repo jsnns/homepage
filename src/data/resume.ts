@@ -21,7 +21,8 @@ const Pluto: ResumeItem = {
   company: "Pluto",
   location: "San Francisco Bay Area",
   startDate: DateTime.fromISO("2021-12-01"),
-  description: "",
+  description:
+    "Jacob founded Pluto to improve how people make personal finance decisions. He wrote the first 100k lines of product code, raised $5M in seed funding, hired a team of 10 engineers, and shipped a product used by 25,000 users.",
   techStack: ["React", "Python", "Kubernetes", "Digial Ocean", "OpenAI"],
 };
 
@@ -31,7 +32,8 @@ const NVIDIA: ResumeItem = {
   location: "Santa Clara County, California, United States",
   startDate: DateTime.fromISO("2020-09-01"),
   endDate: DateTime.fromISO("2021-12-01"),
-  description: "",
+  description:
+    "Jacob partnered with game publishers to optimize their games and marketing content for NVIDIA's cloud gaming platform. He also worked on the NVIDIA GeForce Now team to ship discovery and social features used by millions of gamers.",
   techStack: [],
 };
 
@@ -51,7 +53,8 @@ const BridgewaterAssociates: ResumeItem = {
   location: "Westport, CT",
   startDate: DateTime.fromISO("2018-07-01"),
   endDate: DateTime.fromISO("2019-11-01"),
-  description: "",
+  description:
+    "Jacob worked on a variety of projects to improve Bridgewater's trading app-security posture.",
   techStack: [],
   bullets: [
     {
@@ -147,3 +150,17 @@ export const slugify = (company: string) =>
 
 export const pageForSlug = (slug: string, resume: ResumeItem[]) =>
   resume.find((item) => slugify(item.company) === slug);
+
+export const nextResumeItem = (slug: string, resume: ResumeItem[]) => {
+  const index = resume.findIndex((item) => slugify(item.company) === slug);
+  if (index === -1) return null;
+  if (index === resume.length - 1) return null;
+  return resume[index + 1];
+};
+
+export const prevResumeItem = (slug: string, resume: ResumeItem[]) => {
+  const index = resume.findIndex((item) => slugify(item.company) === slug);
+  if (index === -1) return null;
+  if (index === 0) return null;
+  return resume[index - 1];
+};
