@@ -1,6 +1,7 @@
 import { RESUME, pageForSlug } from "@/data/resume";
 import { DateTime, DateTimeFormatOptions } from "luxon";
 import type { Metadata, ResolvingMetadata } from "next";
+import { BulletList } from "./BulletList";
 
 interface Props {
   params: { company: string };
@@ -32,6 +33,12 @@ export default function Page({ params }: Props) {
           {duration.toFormat("y 'years and' M 'months'")})
         </p>
       </div>
+
+      {company.bullets && (
+        <div className="max-w-3xl">
+          <BulletList bullets={company.bullets} />
+        </div>
+      )}
     </div>
   );
 }

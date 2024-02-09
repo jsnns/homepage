@@ -20,7 +20,10 @@ export default async function Home() {
   return (
     <main className="flex gap-12 md:grid md:grid-cols-2 md:min-h-screen flex-col p-8 md:p-24">
       <div className="flex flex-col grow">
-        <p>Jacob Sansbury</p>
+        <h1>
+          Jacob Sansbury{" "}
+          <span className="opacity-0 text-[1px]">Founder and CEO</span>
+        </h1>
         <p className="opacity-50 italic">San Francisco, CA</p>
       </div>
 
@@ -40,5 +43,5 @@ export default async function Home() {
 export const metadata: Metadata = {
   title: "Jacob Sansbury — Founder, Engineer, Designer",
   description:
-    "Jacob Sansbury is a founder, engineer, and designer with experience as a technical leader at NVIDIA and Bridgewater Associates. Currently Jacob is the Founder and CEO of Pluto.fi, an autonomous agent for personal finance.",
+    "Jacob Sansbury is the Founder and CEO of Pluto.fi, an autonomous agent for personal finance. Previously he was a technical leader at Bridgewater Associates and NVIDIA.",
 };

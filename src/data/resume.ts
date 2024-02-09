@@ -8,6 +8,12 @@ export interface ResumeItem {
   endDate?: DateTime;
   description: string;
   techStack: string[];
+  bullets?: Bullet[];
+}
+
+export interface Bullet {
+  text: string;
+  subBullets?: Bullet[];
 }
 
 const Pluto: ResumeItem = {
@@ -29,6 +35,16 @@ const NVIDIA: ResumeItem = {
   techStack: [],
 };
 
+const Saleae: ResumeItem = {
+  jobTitle: "Sr. Software Engineer",
+  company: "Saleae",
+  location: "South San Francisco, California, United States",
+  startDate: DateTime.fromISO("2019-10-01"),
+  endDate: DateTime.fromISO("2020-03-01"),
+  description: "",
+  techStack: [],
+};
+
 const BridgewaterAssociates: ResumeItem = {
   jobTitle: "Software Engineer",
   company: "Bridgewater Associates",
@@ -37,6 +53,53 @@ const BridgewaterAssociates: ResumeItem = {
   endDate: DateTime.fromISO("2019-11-01"),
   description: "",
   techStack: [],
+  bullets: [
+    {
+      text: "Insider Threat Investigation Toolset",
+      subBullets: [
+        {
+          text: "Shipped a set of 3 investigation tools to mitigate insider threat attack vectors each included tie-ins to AWS infrastructure and a React/Typescript frontend",
+        },
+        {
+          text: "Shipped multithreaded front end data processing pipelines for rendering graph data on an HTML5 Canvas with more than ten thousand nodes and twenty thousand edges",
+        },
+        {
+          text: "Decreased staff training time by three days through wrapping complicated but powerful graph analysis tools into a user-friendly React user interface",
+        },
+      ],
+    },
+    {
+      text: "Proxy Policy Configuration Engine",
+      subBullets: [
+        {
+          text: "Mitigated risk for over 1,000 policy exception by integrating Bridgewater's proxy configuration engine with RSA Archer",
+        },
+        {
+          text: "Built a proxy configuration engine that tracks over one thousand active policy exceptions in React and Golang",
+        },
+      ],
+    },
+    {
+      text: "Security Infrastructure",
+      subBullets: [
+        {
+          text: "Migrated a Docker build pipeline to Bazel for 80% smaller builds and reduced attack surface",
+        },
+        {
+          text: "Improved critical infrastructure visibility by 90% though new tooling for packet capture",
+        },
+        {
+          text: "Grew AWS Terraform adoption by 5x through education sessions and team demos",
+        },
+        {
+          text: "Embedded static code analysis in over 100 CI/CD pipelines with SonarCloud",
+        },
+        {
+          text: "Implemented Terraform-backed multi-availability-zone AWS infrastructure with RDS and Fargate to store and process terabytes of graph data",
+        },
+      ],
+    },
+  ],
 };
 
 const MadMobile: ResumeItem = {
@@ -72,6 +135,7 @@ const TCubeSolutions: ResumeItem = {
 export const RESUME = [
   Pluto,
   NVIDIA,
+  Saleae,
   BridgewaterAssociates,
   MadMobile,
   SentinelSix,
