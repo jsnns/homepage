@@ -4,7 +4,7 @@ import { LinkList } from "./Links";
 import { getPostMetadatas } from "@/data/loaders";
 import { PostMetadata } from "@/data/post";
 import { ProjectMetadata } from "@/data/project";
-import { LifeProgressBar } from "@/components/LifeProgressBar";
+import "./home.css";
 
 export default async function Home() {
   const postList = await getPostMetadatas<PostMetadata>("src/app/thoughts");
