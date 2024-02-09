@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Resume } from "@/app/Resume";
 import { RESUME } from "@/data/resume";
 import { LinkList } from "./Links";
@@ -35,3 +36,9 @@ export default async function Home() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Jacob Sansbury — Founder, Engineer, Designer",
+  description:
+    "Jacob Sansbury is a founder, engineer, and designer with experience as a technical leader at NVIDIA and Bridgewater Associates. Currently Jacob is the Founder and CEO of Pluto.fi, an autonomous agent for personal finance.",
+};

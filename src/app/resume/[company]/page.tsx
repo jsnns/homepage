@@ -1,8 +1,13 @@
 import { RESUME, pageForSlug } from "@/data/resume";
 import { DateTime, DateTimeFormatOptions } from "luxon";
-import { ArrowRight } from "react-feather";
+import type { Metadata, ResolvingMetadata } from "next";
 
-export default function Page({ params }: { params: { company: string } }) {
+interface Props {
+  params: { company: string };
+  searchParams: URLSearchParams;
+}
+
+export default function Page({ params }: Props) {
   const company = pageForSlug(params.company, RESUME);
 
   if (!company) {
@@ -29,4 +34,16 @@ export default function Page({ params }: { params: { company: string } }) {
       </div>
     </div>
   );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const company = params.company;
+
+  const companyInfo = pageForSlug(company, RESUME);
+
+  return {
+    title: `Jacob Sansbury — ${companyInfo?.jobTitle} at ${companyInfo?.company}`,
+    description: companyInfo?.description,
+  };
 }
