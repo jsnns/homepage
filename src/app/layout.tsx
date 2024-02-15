@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Serif_4 } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/app/globals.css";
+import Script from "next/script";
 
 const ss4 = Source_Serif_4({ subsets: ["latin"] });
 
@@ -17,6 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        defer
+        data-domain="workbyjacob.com"
+        src="https://plausible.io/js/script.js"
+      />
       <SpeedInsights />
       <body className={ss4.className}>{children}</body>
     </html>
