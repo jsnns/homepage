@@ -1,9 +1,4 @@
-import {
-  RESUME,
-  nextResumeItem,
-  pageForSlug,
-  prevResumeItem,
-} from "@/data/resume";
+import { RESUME, pageForSlug } from "@/data/resume";
 import { DateTime, DateTimeFormatOptions } from "luxon";
 import type { Metadata } from "next";
 import { BulletList } from "./BulletList";
@@ -29,9 +24,8 @@ export default function Page({ params }: Props) {
 
   return (
     <div className="p-8 md:p-24 flex flex-col gap-24">
-      <ResumeShortcuts currentResumeItem={params.company} />
-
       <div className="flex flex-col gap-4">
+        <ResumeShortcuts currentResumeItem={params.company} />
         <h1 className="text-3xl font-light opacity-50">
           {company.jobTitle} at {company.company}
         </h1>
