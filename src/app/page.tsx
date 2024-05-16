@@ -24,7 +24,16 @@ export default async function Home() {
           Jacob Sansbury{" "}
           <span className="opacity-0 text-[1px]">Founder and CEO</span>
         </h1>
-        <p className="opacity-50 italic">San Francisco, CA</p>
+        <p className="opacity-75">
+          Founder{" "}
+          <a
+            target="_blank"
+            href="https://x.com/jsnnsa"
+            className="underline opacity-50"
+          >
+            @jsnnsa
+          </a>
+        </p>
       </div>
 
       <div className="grid-cols-1 row-span-2 flex flex-col md:items-end grow">

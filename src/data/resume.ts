@@ -54,7 +54,7 @@ const BridgewaterAssociates: ResumeItem = {
   startDate: DateTime.fromISO("2018-07-01"),
   endDate: DateTime.fromISO("2019-11-01"),
   description:
-    "Jacob worked on a variety of projects to improve Bridgewater's trading app-security posture.",
+    "Jacob worked on a variety of projects to improve Bridgewater's trading platforms performance and appsec posture.",
   techStack: [],
   bullets: [
     {
@@ -140,9 +140,9 @@ export const RESUME = [
   NVIDIA,
   Saleae,
   BridgewaterAssociates,
-  MadMobile,
-  SentinelSix,
-  TCubeSolutions,
+  // MadMobile,
+  // SentinelSix,
+  // TCubeSolutions,
 ];
 
 export const slugify = (company: string) =>

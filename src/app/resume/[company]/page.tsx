@@ -40,11 +40,11 @@ export default function Page({ params }: Props) {
         <p className="max-w-3xl">{company.description}</p>
       )}
 
-      {company.bullets && (
+      {/* {company.bullets && (
         <div className="max-w-3xl">
           <BulletList bullets={company.bullets} />
         </div>
-      )}
+      )} */}
     </div>
   );
 }
