@@ -19,8 +19,6 @@ export const Age = () => {
 
   const [int, dec] = age.split(".");
 
-  // update every second
-
   return (
     <>
       <span className="">{int}</span>
