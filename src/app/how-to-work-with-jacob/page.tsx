@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
+import { Age } from "./Age";
 
 const Pg: React.FC<{ text: string }> = ({ text }) => {
   return <p>{text}</p>;
@@ -29,7 +30,12 @@ export default function HowToWorkWithMePage() {
           A living document. Last updated April 1st, 2024
         </p>
         <h1 className="text-3xl opacity-50">How to Work with Jacob</h1>
-        <Pg text="👋 Hey there! I'm Jacob, a 24-year-old tech founder. I care a lot about building impactful and beautiful products that change people's lives in a positive way. I wanted to share a bit about my background and how I like to work." />
+        <p>
+          👋 Hey there! I&apos;m Jacob a <Age /> tech founder. I care a lot
+          about building impactful and beautiful products that change
+          people&apos;s lives in a positive way. I wanted to share a bit about
+          my background and how I like to work.
+        </p>
       </Section>
 
       <Section>
