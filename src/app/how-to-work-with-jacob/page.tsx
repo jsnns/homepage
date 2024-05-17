@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 
 const Pg: React.FC<{ text: string }> = ({ text }) => {
@@ -100,3 +101,25 @@ export default function HowToWorkWithMePage() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "How to Work with Jacob",
+  description: "A guide on how to effectively work with Jacob, a tech founder",
+  // Add any other metadata properties you need
+  openGraph: {
+    title: "How to Work with Jacob",
+    description:
+      "A guide on how to effectively work with Jacob, a tech founder",
+    type: "article",
+    // Add any other og properties you need
+  },
+  twitter: {
+    card: "summary",
+    site: "@jsnnsa",
+    creator: "@jsnnsa",
+    title: "How to Work with Jacob",
+    description:
+      "A guide on how to effectively work with Jacob, a tech founder",
+  },
+  // Add any other metadata properties you need
+};
