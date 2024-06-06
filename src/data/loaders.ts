@@ -8,6 +8,7 @@ export interface BaseMetadata {
   slug: string;
   parsedDate: DateTime;
   category: string;
+  unessay?: boolean;
 }
 
 // find all metadata.ts files in the app/thoughts/** directories

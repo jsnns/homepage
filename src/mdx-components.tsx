@@ -8,8 +8,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: (props) => <h3 className="text-2xl mt-12 mb-4" {...props} />,
     h3: (props) => <h3 className="text-lg font-light opacity-50" {...props} />,
     p: (props) => <p className="leading-relaxed my-3" {...props} />,
-    ul: (props) => <ul className="list-disc my-4" {...props} />,
-    ol: (props) => <ol className="list-decimal my-4" {...props} />,
+    ul: (props) => <ul className="list-disc my-4 ml-4" {...props} />,
+    ol: (props) => <ol className="list-decimal my-4 ml-4" {...props} />,
     li: (props) => <li className="my-2" {...props} />,
     a: (props) => <a className="text-blue-500" {...props} />,
     code: (props) => (
