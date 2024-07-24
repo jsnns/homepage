@@ -26,7 +26,7 @@ const Robinhood: ResumeItem = {
 };
 
 const Pluto: ResumeItem = {
-  jobTitle: "Founder and CEO",
+  jobTitle: "CEO (Sold to Robinhood)",
   company: "Pluto",
   location: "San Francisco Bay Area",
   startDate: DateTime.fromISO("2021-12-01"),
@@ -146,6 +146,7 @@ const TCubeSolutions: ResumeItem = {
 };
 
 export const RESUME = [
+  Robinhood,
   Pluto,
   NVIDIA,
   Saleae,
