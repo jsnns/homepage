@@ -16,11 +16,21 @@ export interface Bullet {
   subBullets?: Bullet[];
 }
 
+const Robinhood: ResumeItem = {
+  jobTitle: "Technologist (AI)",
+  company: "Robinhood",
+  location: "Menlo Park, California",
+  startDate: DateTime.fromISO("2024-06-01"),
+  description: "",
+  techStack: [],
+};
+
 const Pluto: ResumeItem = {
   jobTitle: "Founder and CEO",
   company: "Pluto",
   location: "San Francisco Bay Area",
   startDate: DateTime.fromISO("2021-12-01"),
+  endDate: Robinhood.startDate,
   description:
     "Jacob founded Pluto to improve how people make personal finance decisions. He wrote the first 100k lines of product code, raised $5M in seed funding, hired a team of 10 engineers, and shipped a product used by 25,000 users.",
   techStack: ["React", "Python", "Kubernetes", "Digial Ocean", "OpenAI"],
