@@ -7,8 +7,8 @@ export const BlogLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <RootLayout>
+    <>
       <div className="flex flex-col p-8 md:p-24 max-w-4xl">{children}</div>
-    </RootLayout>
+    </>
   );
 };
