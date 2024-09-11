@@ -25,7 +25,7 @@ export default function RootLayout({
         src="https://plausible.io/js/script.js"
       />
       <SpeedInsights />
-      <body className={ss4.className}>{children}</body>
+      <div className={ss4.className}>{children}</div>
     </html>
   );
 }
