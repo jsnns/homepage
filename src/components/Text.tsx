@@ -3,7 +3,7 @@ export const Pg: React.FC<{ text: string }> = ({ text }) => {
 };
 
 export const Header: React.FC<{ text: string }> = ({ text }) => {
-  return <h2 className="text-xl font-light opacity-75">{text}</h2>;
+  return <h2 className="text-xl font-light">{text}</h2>;
 };
 
 export const Subheader: React.FC<{ text: string }> = ({ text }) => {

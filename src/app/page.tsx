@@ -13,24 +13,31 @@ export default async function Home() {
     "src/app/projects"
   );
 
-  const allLinks = [...postList, ...projectList].sort(
+  const sortedPostList = postList.sort(
+    (a, b) => b.parsedDate.toMillis() - a.parsedDate.toMillis()
+  );
+
+  const sortedProjectList = projectList.sort(
     (a, b) => b.parsedDate.toMillis() - a.parsedDate.toMillis()
   );
 
   return (
-    <main className="flex gap-12 md:grid md:grid-cols-2 md:min-h-screen flex-col p-8 md:p-24">
+    <main className="flex gap-12 md:min-h-screen flex-col p-8 md:p-24">
       <div className="flex flex-col grow">
-        <h1>
+        <h1 className="text-accent font-bold text-4xl">
           Jacob Sansbury{" "}
           <span className="opacity-0 text-[1px]">Founder and CEO</span>
         </h1>
-        <p className="opacity-75 italic">Founder, Engineer, Builder</p>
+        <p className="font-bold">Founder, Engineer, Builder</p>
       </div>
 
-      <div className="grid-cols-1 row-span-2 flex flex-col md:items-end grow">
-        <div className="flex flex-col w-fit">
-          <LinkList links={allLinks} />
-        </div>
+      <div className="flex flex-col w-fit">
+        <h2 className="text-accent font-semibold text-lg mb-4">Thoughts</h2>
+        <LinkList links={sortedPostList} />
+      </div>
+      <div className="flex flex-col w-fit">
+        <h2 className="text-accent font-semibold text-lg mb-4">Projects</h2>
+        <LinkList links={sortedProjectList} />
       </div>
 
       <div className="flex flex-col md:justify-end">

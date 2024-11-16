@@ -1,5 +1,4 @@
 import "@/app/globals.css";
-import RootLayout from "@/app/layout";
 
 export const BlogLayout = ({
   children,

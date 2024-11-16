@@ -23,13 +23,13 @@ export default function Page({ params }: Props) {
   ]);
 
   return (
-    <div className="p-8 md:p-24 flex flex-col gap-24">
-      <div className="flex flex-col gap-4">
-        <ResumeShortcuts currentResumeItem={params.company} />
-        <h1 className="text-3xl font-light opacity-50">
+    <div className="p-8 md:p-24 flex flex-col gap-12">
+      <ResumeShortcuts currentResumeItem={params.company} />
+      <div className="flex flex-col gap-2">
+        <h1 className="text-3xl">
           {company.jobTitle} at {company.company}
         </h1>
-        <p className="opacity-25">
+        <p className="">
           {company.startDate.toLocaleString(dateStyle)} —{" "}
           {company.endDate?.toLocaleString(dateStyle) || "Present"} (
           {duration.toFormat("y 'years and' M 'months'")})

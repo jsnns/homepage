@@ -21,8 +21,8 @@ export const Age = () => {
 
   return (
     <>
-      <span className="">{int}</span>
-      <span className="opacity-30 text-xs">.{dec}</span> year-old
+      <span className="text-accent">{int}</span>
+      <span className="text-accent text-xs">.{dec}</span> year-old
     </>
   );
 };
