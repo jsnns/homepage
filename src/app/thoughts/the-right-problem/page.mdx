@@ -1,0 +1,56 @@
+import { BlogHeader } from "@/components/BlogHeader";
+import { enhanceMetadata } from "@/data/loaders";
+import meta from "./metadata.json";
+
+export const metadata = enhanceMetadata(meta);
+
+<BlogHeader metadata={metadata} />
+
+In the past, I haven't spent enough time picking the right problems to work on. Pretty quickly after starting to explore why, I noticed that I have loose definitions for both "right" and "problem".
+
+# What is a "problem"
+
+Before we even have a chance to find the right problems, we need a way to think about what problems are to begin with.
+
+To start — it's easier to understand problems in specific contexts like solving a math equation, finding a profitable way to deliver a good or service, handling traffic in a distributed system, etc., but it's a generic definition of problem which evades me.
+
+The first step I took to find a generic definition was to make a big list of different problems in business, science, engineering, self-improvement, personal relationships, and economics; then read them a few times and let them sizzle in my unconscious while I went about life. While I was watching 21st Jump Street with a couple of friends, a framework came to me and I'm taking a moment to write it down:
+
+## Defining a generic problem
+
+We can define a generic problem with a few arguments:
+
+- A current state `S` and a function `f` that describes its dynamics
+- A desired state `S'` that satisfies a specific condition or goal
+- A set of constraints `C`
+
+**The problem**: find or design a transformation `f` such that `f'(S) = S'`, optimizing for `C`.
+
+**Finding `f'`**: This often requires a process of **diagnosis** (understanding `f`), **design** (proposing `f'`), and **implementation** (applying `f'`).
+
+I like this abstraction since it fits the essence of most problem-solving scenarios while preserving its intuitive appeal.
+
+## Examples of problems that fit this spec
+
+**Everyday life:** Current state `S = keys are lost`. The solution function `f'` implements steps to find keys (e.g., retrace steps, check common locations, call last known location), leading to desired state `S' = keys are found`. Constraints `C` might include time available to search, physical accessibility of spaces, and mental state affecting memory recall.
+
+**Business:** Current state `S` where `f(customer engagement strategy) = high churn`. The solution function `f'` implements improvements to customer engagement (e.g., personalized outreach, better onboarding, proactive support), leading to desired state `S' = low churn`. Constraints `C` might include budget limitations, team capacity, and technical feasibility.
+
+**Engineering:** Current state `S` where `f(solar panel design) = low efficiency`. The solution function `f'` implements improvements to the design (e.g., new materials, better light absorption techniques), leading to desired state `S' = high efficiency`. Constraints `C` might include material costs, manufacturing feasibility, and durability requirements.
+
+# The right problems
+
+This definition of problem even works for the problem of finding the _right problems_!
+
+**Problem:** Current state `S` where `f(all possible problems)` represents our unfiltered view of problems. The solution function `f'` implements a filter based on our values, capabilities, and impact potential, leading to desired state `S' = high-value problems worth solving`. Constraints `C` include our time, resources, skills, and the requirement that solutions create lasting positive change.
+
+## My filters
+
+When I think about the problems that I want to spend my life on, they share a few characteristics:
+
+- if solved, the trajectory of society is permanently changed for the better (impact of `S → S'`),
+- and the probability of success is so remote that even attempts are viewed as a fool's errand by most rational observers (The path from `f` to `f'` is ambiguous).
+
+# Aside: Roles
+
+That said, just having interesting problems in my vicinity isn't enough. My role in solving the problems is also important — I need real ownership to give my life to solving a problem. Ownership means something very specific to me: It means that my success or failure is judged on outcomes over a sufficiently long time horizon such that I can make unpopular and seemingly insane bets with enough time for them to win out in the end.

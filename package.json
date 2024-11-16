@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "react-feather": "^2.0.10",
     "react-hotkeys-hook": "^4.5.0",
+    "react-katex": "^3.0.1",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background-rgb: 245 228 201;
+  --background-rgb: 250 236 210;
   --foreground-rgb: 10 4 0;
   --accent-rgb: 254 64 23;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-rgb);
+  background-color: rgb(var(--background-rgb));
   min-height: 100svh;
 }
 

@@ -14,15 +14,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h3 className="text-md font-semibold mt-6 mb-2" {...props} />
     ),
     p: (props) => <p className="leading-relaxed my-3" {...props} />,
-    ul: (props) => <ul className="list-disc my-4 ml-4" {...props} />,
-    ol: (props) => <ol className="list-decimal my-4 ml-4" {...props} />,
+    ul: (props) => <ul className="list-disc ml-4" {...props} />,
+    ol: (props) => <ol className="list-decimal ml-4" {...props} />,
     li: (props) => <li className="my-2" {...props} />,
     a: (props) => <a className="underline" {...props} />,
     code: (props) => (
-      <code
-        className="bg-white bg-opacity-10 font-mono p-1 rounded"
-        {...props}
-      />
+      <code className="text-accent font-semibold font-mono" {...props} />
+    ),
+    blockquote: (props) => (
+      <blockquote className="border-l-4 border-accent pl-4 italic" {...props} />
     ),
   };
 }
