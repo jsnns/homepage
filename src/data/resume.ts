@@ -17,7 +17,7 @@ export interface Bullet {
 }
 
 const Robinhood: ResumeItem = {
-  jobTitle: "Technologist (AI)",
+  jobTitle: "Head of Agentic AI",
   company: "Robinhood",
   location: "Menlo Park, California",
   startDate: DateTime.fromISO("2024-06-01"),
