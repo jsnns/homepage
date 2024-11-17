@@ -9,15 +9,8 @@ import "./home.css";
 
 export default async function Home() {
   const postList = await getPostMetadatas<PostMetadata>("src/app/thoughts");
-  const projectList = await getPostMetadatas<ProjectMetadata>(
-    "src/app/projects"
-  );
 
   const sortedPostList = postList.sort(
-    (a, b) => b.parsedDate.toMillis() - a.parsedDate.toMillis()
-  );
-
-  const sortedProjectList = projectList.sort(
     (a, b) => b.parsedDate.toMillis() - a.parsedDate.toMillis()
   );
 
@@ -34,10 +27,6 @@ export default async function Home() {
       <div className="flex flex-col w-fit">
         <h2 className="text-accent font-semibold text-lg mb-4">Thoughts</h2>
         <LinkList links={sortedPostList} />
-      </div>
-      <div className="flex flex-col w-fit">
-        <h2 className="text-accent font-semibold text-lg mb-4">Projects</h2>
-        <LinkList links={sortedProjectList} />
       </div>
 
       <div className="flex flex-col md:justify-end">
