@@ -13,6 +13,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: (props) => (
       <h3 className="text-md font-semibold mt-6 mb-2" {...props} />
     ),
+    hr: (props) => (
+      <hr
+        className="my-8 border-accent/50 border-dashed border-spacing-8"
+        {...props}
+      />
+    ),
+    em: (props) => <em className="italic text-accent" {...props} />,
     p: (props) => <p className="leading-relaxed my-3" {...props} />,
     ul: (props) => <ul className="list-disc ml-4" {...props} />,
     ol: (props) => <ol className="list-decimal ml-4" {...props} />,
