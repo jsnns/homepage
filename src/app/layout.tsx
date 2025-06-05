@@ -9,7 +9,7 @@ const ss4 = Source_Serif_4({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Jacob Sansbury — Founder, Engineer, Designer",
   description:
-    "Jacob Sansbury is the Founder and CEO of Pluto.fi, an autonomous agent for personal finance. Previously he was a technical leader at Bridgewater Associates and NVIDIA.",
+    "Jacob Sansbury is the Founder of Spawn.co, a platform for creating and sharing interactive experiences.",
 };
 
 export default function RootLayout({
