@@ -16,6 +16,16 @@ export interface Bullet {
   subBullets?: Bullet[];
 }
 
+const Spawn: ResumeItem = {
+  jobTitle: "Founder & CEO",
+  company: "Spawn",
+  location: "San Francisco, California",
+  // my birthday 2024
+  startDate: DateTime.fromISO("2024-12-12"),
+  description: "",
+  techStack: [],
+};
+
 const Robinhood: ResumeItem = {
   jobTitle: "Head of Agentic AI",
   company: "Robinhood",
@@ -26,7 +36,7 @@ const Robinhood: ResumeItem = {
 };
 
 const Pluto: ResumeItem = {
-  jobTitle: "CEO (Sold to Robinhood)",
+  jobTitle: "Founder & CEO (Sold to Robinhood)",
   company: "Pluto",
   location: "San Francisco Bay Area",
   startDate: DateTime.fromISO("2021-12-01"),
@@ -146,6 +156,7 @@ const TCubeSolutions: ResumeItem = {
 };
 
 export const RESUME = [
+  Spawn,
   Robinhood,
   Pluto,
   NVIDIA,
