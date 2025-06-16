@@ -1,0 +1,171 @@
+import { BlogHeader } from "@/components/BlogHeader";
+import { enhanceMetadata } from "@/data/loaders";
+import meta from "./metadata.json";
+
+export const metadata = enhanceMetadata(meta);
+
+<BlogHeader metadata={metadata} />
+
+Cursor built a product that no one wanted. For months, their AI code editor was just another wrapper on top of GPT-4. Sluggish. Unreliable. A toy.
+
+Then Claude 3.5 Sonnet arrived.
+
+Same product. Same codebase. Suddenly they're doing $100M ARR and every developer I know won't shut up about it.
+
+They didn't build a product. They built a sail.
+
+## The wind is picking up
+
+Here's what separates the AI companies that will survive from those that won't:
+
+**Engines** are complex architectures optimized for today's models. They're impressive now and worthless tomorrow.
+
+**Sails** are simple architectures that get more powerful as models improve. They barely work today and dominate tomorrow.
+
+Most founders are building engines.
+
+> Think about what you're actually doing when you fine-tune a model. You're spending thousands of dollars teaching GPT-4 to be slightly less stupid at your specific use case. You're building elaborate workarounds for today's limitations.
+
+That's like spending 2007 perfecting your mobile-optimized website. The iPhone is coming.
+
+Every dollar spent on fine-tuning is a dollar bet against model improvements.
+
+## I built tool use before it was cool
+
+In 2022, I was building Pluto. We watched GPT-3 try to analyze financial data and fail spectacularly. It couldn't do math. It couldn't track multiple variables. It would hallucinate spreadsheet functions.
+
+Everyone else built elaborate prompt chains. Token-optimized templates. Multi-stage validation pipelines.
+
+I built something simpler. I just let the model call functions.
+
+We implemented tool use a full year before it showed up in any commercial API. Before function calling was a feature. When everyone thought it was crazy to build for capabilities that didn't exist.
+
+500 lines of code that said: "Here are tools. Use them."
+
+GPT-3 couldn't figure it out. Our demos were painful. Investors passed. "Why would you build features for capabilities that don't exist?"
+
+Eighteen months later, Robinhood paid millions for those 500 lines of code.
+
+Because when GPT-4 arrived - and more importantly, when it learned to use tools - our simple architecture suddenly worked perfectly. No changes needed. The same 500 lines of code that looked stupid in 2022 were now analyzing portfolios better than most humans.
+
+I didn't predict GPT-4's features. I just built infrastructure for how humans naturally think: "I need to check this data, run this calculation, compare these things."
+
+I built a sail. The wind found us.
+
+## Complexity is a bet against progress
+
+Look at any AI startup's architecture. If it would have been impressive in 2023, it's already dead.
+
+RAG pipelines? That's a monument to 8K context windows. GPT-5 will have million-token context.
+
+Vector databases? You're building infrastructure for models that can't remember. Next generation won't need external memory.
+
+Multi-agent orchestration? You're working around models that can't handle complex tasks. Soon one model will do it all.
+
+> These aren't features. They're monuments to GPT-4's failures.
+
+The moment OpenAI ships their next model, half the YC batch becomes worthless. The other half becomes unicorns.
+
+The difference? Sails versus engines.
+
+Your prompt engineering team will be laid off within 18 months. Not because they're bad, but because their job won't exist. "Prompt engineer" will sound as dated as "webmaster."
+
+In 2005, every company needed a webmaster. In 2010, every 12-year-old could build a website.
+
+That's about to happen to AI.
+
+## The workflow extinction event
+
+Here's the pattern no one wants to see:
+
+Human → Human (how work used to happen)  
+Human → AI → AI → Human (how work happens now)  
+AI → AI (how work will happen)
+
+If your product helps humans create things for other humans in a business context, you're building for a use case that won't exist.
+
+Landing pages? AI won't need visual builders.  
+Business documents? AIs will negotiate directly.  
+Sales emails? AI to AI, no human required.
+
+> The entire B2B SaaS industry is predicated on humans needing interfaces. AIs don't need interfaces. They need APIs.
+
+You're not just building an engine. You're building an engine for a car that's about to be illegal to drive.
+
+## The $4.2M signal
+
+A16Z just published data showing consumer AI companies hit $4.2M ARR in their first year. B2B companies only hit $2M.
+
+Everyone's confused. "Why is consumer beating enterprise?"
+
+They're missing what's actually happening.
+
+These aren't really consumer companies. They're B2wannaB companies. FaceTune for aspiring influencers. AI writers for newsletter hustlers. Headshot apps for LinkedIn optimizers.
+
+People trying to make money will pay $30/month for any edge. That's not consumer. That's prosumer desperation.
+
+But here's what matters: it proves humans will pay for AI leverage.
+
+> When people pay $30/month to work, imagine what they'll pay to play.
+
+When AI-generated experiences become actually fun, not just useful, we'll see the biggest consumer platforms in history.
+
+The real consumer platforms - the ones that capture pure human creative expression - haven't arrived yet. We're in 1999. People can build personal websites, but YouTube doesn't exist.
+
+## Only two things survive
+
+In five years, only two types of AI companies will exist:
+
+1. **Infrastructure for AI → AI communication.** Boring but necessary. The AWS of agent-to-agent protocols. Also, probably not built by humans. AIs will build their own protocols.
+
+2. **Platforms for human creative expression.** Where humans use AI to create things for other humans to experience. Not because they have to, but because they want to.
+
+Everything else gets eaten by the models.
+
+"AI-assisted business workflows" won't exist. Either AI does it completely, or humans do it for fun. There's no middle ground.
+
+The biggest companies of the next decade won't help humans work. They'll help humans create. They'll provide 1000x leverage on human creativity and imagination.
+
+We saw this with the internet. The tools (FrontPage, Dreamweaver) died. The platforms (YouTube, Instagram, TikTok) won.
+
+AI will follow the same pattern, just 10x faster.
+
+## The wrong optimization
+
+Every AI founder I meet is solving the wrong problem.
+
+They watch GPT-4 fail at something and build elaborate infrastructure to fix it. They're building solutions for models that will be obsolete before their next board meeting.
+
+The founders who win don't build for what AI can't do. They build for what humans are trying to do.
+
+> When your product is embarrassingly simple, you might have built a sail. When you're proud of your technical complexity, you definitely built an engine.
+
+The best AI products do almost nothing. They just do it in exactly the right place.
+
+## The hurricane is coming
+
+We're not in the AI gold rush. We're in the calm before the hurricane.
+
+In 18 months, everything models can do 80% well today, they'll do perfectly. Every task that's "almost working" will just work. Faster, better, more reliable.
+
+That last 20% is the difference between demo and deployment. Between toy and tool. Between engine and sail.
+
+Every optimization you're making for today's constraints will be irrelevant. Every workaround will be worthless. Every moat will be drained.
+
+Except sails. Sails just catch more wind.
+
+Cursor knew this. They built a simple container for AI coding capability and waited. Now they're printing money.
+
+I knew this at Pluto. I built simple tool use and waited. Robinhood bought the option on our future.
+
+The founders who know this are building the next trillion-dollar companies. They're not competing on features. They're not optimizing for today. They're building sails and positioning them where the wind will be strongest.
+
+The wind is picking up.
+
+Time to choose: are you building a sail or an engine?
+
+Because in 18 months, only the sails will be left. Everything else will be underwater.
+
+> Look at your codebase. Look at your architecture. Look at what you're optimizing for.
+>
+> Now ask yourself: when the hurricane hits, will you fly or will you drown?
