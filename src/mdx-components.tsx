@@ -31,5 +31,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: (props) => (
       <blockquote className="border-l-4 border-accent pl-4 italic" {...props} />
     ),
+    table: (props) => (
+      <div className="my-6 overflow-x-auto">
+        <table className="w-full border-collapse text-sm" {...props} />
+      </div>
+    ),
+    thead: (props) => (
+      <thead className="border-b border-accent/50" {...props} />
+    ),
+    th: (props) => (
+      <th className="text-left py-2 pr-4 font-semibold" {...props} />
+    ),
+    td: (props) => (
+      <td className="py-2 pr-4 border-b border-accent/20" {...props} />
+    ),
   };
 }

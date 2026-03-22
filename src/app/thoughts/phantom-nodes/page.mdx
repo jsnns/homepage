@@ -67,3 +67,115 @@ And if any of this is useful, the practical question is: which dependencies have
 The flat chart isn't a failure to help founders. It's a fingerprint of how progress actually works. The structure is stable even when everything around it changes, because it reflects a dependency graph whose topology is more fundamental than any method, capital base, or individual.
 
 The founders who repeat are the ones who can read the graph.
+
+---
+
+## Mathematical Appendix
+
+### Setup
+
+Let **G** be a directed acyclic graph (DAG) where each node represents a potential innovation, company, or opportunity. Each node *i* has a set of parent nodes **P(i)** — its prerequisites.
+
+A node *i* becomes **feasible** at time *t* when all of its parents have been unlocked:
+
+**feasible(i, t) = 1  if and only if  ∀ j ∈ P(i): unlocked(j, t) = 1**
+
+A node that appears feasible to an observer but has unresolved prerequisites is a **phantom node**:
+
+**phantom(i, t) = 1  if  feasible(i, t) = 0  and  perceived\_feasible(i, t) = 1**
+
+This is the Webvan condition. The idea is legible before its complements have resolved.
+
+### Frontier dynamics
+
+At any time *t*, define:
+
+- **F(t)** = number of feasible nodes (real opportunities)
+- **Φ(t)** = number of phantom nodes (perceived but not yet feasible)
+- **N(t)** = number of new entrants (startups founded at time *t*)
+- **b** = average branching factor (child nodes exposed per unlock)
+
+When a node is unlocked, it exposes on average *b* new child nodes. Some of these will be immediately feasible (their other prerequisites already resolved), most won't. Let **α** be the fraction of newly exposed nodes that are immediately feasible. Then the frontier grows approximately as:
+
+**F(t+1) ≈ F(t) + αb · unlocks(t) − unlocks(t)**
+
+The first term is new feasible nodes appearing. The second is feasible nodes being consumed by successful startups.
+
+### The survival rate
+
+A startup founded at time *t* succeeds (survives to horizon *τ*) if it is probing a real node and wins the competition at that node. The probability decomposes as:
+
+**S(τ) ≈ P(real node) · P(win | real node)**
+
+Where:
+
+**P(real node) = F(t) / \[F(t) + Φ(t)\]**
+
+This is the ratio of real opportunities to total perceived opportunities. It's the structural term — what fraction of the things that look like good ideas actually are good ideas right now.
+
+**P(win | real node) ≈ 1 / k(t)**
+
+Where *k(t)* is the average number of entrants competing at each feasible node. This is where methods (search quality) and competitive dynamics (Red Queen) operate.
+
+### Why the rate is stable
+
+The key claim is that **F(t) / \[F(t) + Φ(t)\]** is approximately constant over time. This happens if the graph is self-similar: the ratio of feasible to phantom nodes at the frontier looks the same regardless of the frontier's size.
+
+Intuitively, each generation of the graph has a similar combinatorial structure. When a GPT (general-purpose technology) widens the frontier, it exposes many new nodes, but most of them have unresolved co-prerequisites from other branches. The fraction that are immediately feasible stays roughly constant because the dependency structure at the new frontier is statistically similar to the old frontier.
+
+Additionally, N(t) is coupled to F(t). More feasible nodes → more visible opportunities → more entrants. If N(t) scales roughly linearly with F(t), then k(t) stays roughly constant too. Both terms in the survival equation hold steady.
+
+The result:
+
+**S(τ) ≈ constant**
+
+Not because nothing changes, but because the structural quantities change together.
+
+### Three levels, formalized
+
+The essay distinguishes three levels. In the model:
+
+1. **Search quality (M)** — affects how efficiently a founder identifies whether their node is real or phantom, and iterates toward product-market fit within a feasible node. Operates on P(win | real node). Lean Startup lives here.
+
+2. **Competition (C)** — the number of entrants per feasible node, *k(t)*. Also operates on P(win | real node). Red Queen lives here.
+
+3. **Frontier topology (F, Φ)** — the ratio of real to phantom nodes. Operates on P(real node). The dependency graph lives here.
+
+The aggregate survival rate is dominated by level 3 because M and C are approximately symmetric across founders (everyone has access to the same methods, faces similar competition), while the frontier ratio is a structural property of the graph that no individual founder can change.
+
+### Branching factor
+
+The branching factor *b* is not constant. It depends on the type of node being unlocked:
+
+- **General-purpose technologies** (electricity, internet, mobile, AI) have very high *b* — they expose nodes across many branches simultaneously
+- **Domain-specific innovations** have low *b* — they expose a small number of closely related nodes
+
+This explains why GPTs matter disproportionately. A GPT doesn't just advance one branch. It increases *b* across the whole graph, widening the frontier by a multiplicative factor rather than an additive one.
+
+However, high *b* doesn't change the survival rate, because the new frontier has the same statistical structure as the old one (self-similarity), and the increased opportunity surface draws proportionally more entrants.
+
+### Testable predictions
+
+1. **Simultaneous discovery frequency should correlate with dependency resolution clustering.** When multiple prerequisites resolve in a short window, you should see more independent attempts at the same node. Patent data could test this.
+
+2. **"Too early" failures should cluster at nodes with high parent count.** The more prerequisites a node has, the more likely some are unresolved, and the more likely an entrant is probing a phantom. Startup failure data matched against technology dependency maps could test this.
+
+3. **Entry rates should lag frontier expansion, not lead it.** If N(t) is coupled to F(t), you should see startup formation rates increase *after* major platform unlocks, not before. BLS formation data against GPT adoption timelines could test this.
+
+4. **The ratio F/(F+Φ) should be approximately scale-invariant.** Product space data and patent citation networks could measure whether the feasible fraction at the frontier holds steady as the graph grows.
+
+### Notation summary
+
+| Symbol | Meaning |
+|--------|---------|
+| G | The dependency graph (DAG) |
+| P(i) | Set of prerequisites for node *i* |
+| F(t) | Number of feasible nodes at time *t* |
+| Φ(t) | Number of phantom nodes at time *t* |
+| N(t) | Number of new entrants at time *t* |
+| b | Average branching factor |
+| α | Fraction of newly exposed nodes that are immediately feasible |
+| k(t) | Average entrants per feasible node |
+| S(τ) | Survival rate at horizon *τ* |
+| M | Search quality (methods) |
+| C | Competitive intensity |
