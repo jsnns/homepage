@@ -1,0 +1,69 @@
+import { BlogHeader } from "@/components/BlogHeader";
+import { enhanceMetadata } from "@/data/loaders";
+import meta from "./metadata.json";
+
+export const metadata = enhanceMetadata(meta);
+
+<BlogHeader metadata={metadata} />
+
+About 80% of new businesses survive their first year. Around 50% make it to five. Roughly 35% are still standing at ten. In the BLS data, those bands have stayed remarkably stable since the mid-1990s. Not through the dot-com boom, cloud, mobile, the explosion of available capital, or AI. Thirty years of new methods, new infrastructure, new everything. The same result.
+
+A caveat up front: these are establishment-level data, not a clean sample of venture-backed tech startups. They include restaurants, dry cleaners, and law firms alongside software companies. That makes them noisy. It may also make them more revealing. If the same stability holds across that much variety, the constraint is probably structural rather than methodological.
+
+For most of that time, smart people have been trying to fix this. Lean Startup, Customer Development, the Business Model Canvas. These frameworks won. They're in 97% of university entrepreneurship course syllabi. They're the orthodoxy. And the chart didn't move. 80% of new businesses still survive their first year. 50% still make it to five. 35% to ten.
+
+The usual assumption is that the survival rate is a problem and we haven't found the right solution yet. I think the survival rate is a measurement, and we've been misreading it.
+
+---
+
+Webvan raised $375 million to do grocery delivery in 1999 and went bankrupt. The standard take is they were "too early." But too early just means the world hadn't arranged itself into the right shape yet. Grocery delivery needed smartphones, GPS tracking, a gig labor workforce trained by ride-sharing, consumer trust in strangers showing up at your door, real-time three-party payment processing. None of it existed. Instacart worked fifteen years later because the prerequisites had resolved, not because the founders were better.
+
+Facebook needed the social norms that Myspace established. DoorDash needed the behavioral infrastructure that Uber built. Not because these were linear steps in a plan, but because each one required conditions that only the previous wave could create. Webvan had the right idea in the wrong world. They were probing a position in the landscape that looked real but wasn't. A phantom node.
+
+---
+
+Zoom out from any single example and a structure emerges. Every innovation sits in a directed graph with prerequisites: technologies, infrastructure, behavioral norms, regulatory conditions that must exist before the new thing becomes feasible. And the structure is combinatorial. Most important nodes have multiple parents from different branches that must all resolve simultaneously. That's why timing is so precise, and why the same innovations keep getting independently discovered at the same time. Calculus, the telephone, evolution by natural selection. The dependencies resolve, the node ripens, and whoever is standing closest picks it. The identity of the winner matters less than we like to think once the complements have resolved.
+
+You can't make a baby in one month by getting nine women pregnant.
+
+---
+
+The graph also branches. Each unlock exposes new child nodes. Personal computing exposes operating systems, which expose the web, which exposes social networks, which expose mobile-native platforms, which expose the gig economy, which exposes delivery. The frontier gets wider every generation.
+
+Over 30 years, the number of startups grew substantially while average size at birth shrank (about 7 employees in 1994, about 4 by 2019). More probes, cheaper probes. If the number of real nodes were fixed, the survival rate should have dropped. More people competing for the same slots. But it stayed flat.
+
+The explanation I find most compelling: the frontier expands proportionally. Each unlock exposes new nodes at roughly the rate new entrants arrive. And this isn't a coincidence that needs explaining. The two quantities are coupled. The expanding frontier is what draws new entrants in the first place. More feasible nodes means more visible opportunities, which means more people starting companies. The entrants don't arrive independently of the frontier growing. They arrive because it grew.
+
+If that's true, the ratio of real nodes to phantom nodes may look roughly the same at every scale. And the chart may be a proxy for the shape of the opportunity frontier, not a report card on founder quality.
+
+A caveat. The flat chart is consistent with this, but doesn't prove it alone. Composition shifts (more founders, smaller companies, lower commitment) could also produce flat rates. But the topology explanation accounts for something the composition story doesn't: why the ratio appears stable across very different conditions.
+
+---
+
+This changes what it means to be good at startups. Methods like Lean Startup improve how you search within an already-feasible node. Competition determines who wins a ripe node. The dependency graph determines which nodes are feasible at all, and how many. The first two operate within the frontier. The third determines the frontier. The chart is flat because the third dominates the first two in the aggregate. Methods and competition decide *who* succeeds. The graph decides *how many opportunities are real*.
+
+Which makes "visionary founder" a more concrete idea than genius or hubris. It's graph-reading. Elon Musk has succeeded across rockets, EVs, neural interfaces, and AI. Reusable rockets became feasible when materials science, simulation compute, and manufacturing automation converged. EVs became feasible when lithium-ion costs crossed a threshold. The skill that transfers across wildly different domains is the ability to look at the current state of the world and see which nodes are about to become real. Great serial founders repeat because this skill is transferable. It's not domain expertise. It's reading prerequisites.
+
+Venture capital is a portfolio bet on the graph. Spread enough positions across the frontier and you increase the odds of being near something ripening. VC returns follow a power law that hasn't changed much, and that distribution probably reflects the structure of the graph more than the skill of any individual investor.
+
+---
+
+I don't think any of this is specific to technology.
+
+CRISPR is the clearest non-tech example. It required the mapped genome, which required PCR, which required understanding DNA polymerase. Multiple labs were converging on gene editing at the same time because the node was ripe. The same dependency layering shows up in art (Impressionism requiring portable paint tubes and photography's threat to representational art) and even in financial crises (CDOs requiring mortgage-backed securities to exist first). Wherever you look, progress seems to move by unlocking nodes whose prerequisites have resolved, and the graph constrains what's possible more than any individual actor does.
+
+---
+
+There's something strange worth sitting with. The internet, mobile, cloud, and AI were each massive general-purpose technologies. They didn't unlock one node. They unlocked entire new layers of the graph. The branching factor exploded every time. And the survival rate still didn't move. No more winners. No more losers. The same ratio, at a much larger scale. Because each wave drew proportionally more founders into the newly exposed frontier. The graph gets bigger but its shape stays the same.
+
+This is probably why general-purpose technologies matter so disproportionately. They don't just advance one domain. They increase the branching factor across the whole graph. And it raises a question about AI specifically: if the constraint on progress is dependency resolution speed, AI might be the first technology that doesn't just widen the frontier but accelerates how fast nodes within it ripen. That would be a different kind of change. Not more nodes at the same speed, but the same nodes resolving faster. Whether this actually changes the chart or just draws in entrants even faster is an open question. The evidence so far is uneven. AI dramatically speeds up some work and actively slows down other kinds. The acceleration will be jagged across the graph.
+
+The self-similarity claim is testable. Patent citation networks, product space data, and startup cohort data could measure whether the frontier's branching rate really keeps pace with new entrants. The literature on recombinant growth and path dependence points this direction, but the specific connection to survival rates hasn't been tested.
+
+And if any of this is useful, the practical question is: which dependencies have recently resolved? For the current AI wave, the obvious candidates are evaluation infrastructure, expert-heavy vertical workflows where human judgment filters false positives, and the physical layer (power, cooling, interconnection) that moves at the speed of atoms, not bits.
+
+---
+
+The flat chart isn't a failure to help founders. It's a fingerprint of how progress actually works. The structure is stable even when everything around it changes, because it reflects a dependency graph whose topology is more fundamental than any method, capital base, or individual.
+
+The founders who repeat are the ones who can read the graph.
