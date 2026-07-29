@@ -29,7 +29,7 @@ export const THOUGHTS_INDEX: CuratedThought[] = [
 
 export const BEFORE_THIS = [
   { company: "Robinhood", note: "agentic AI", href: "/resume/robinhood" },
-  { company: "Pluto", note: "founded it, they bought it", href: "/resume/pluto" },
+  { company: "Pluto", note: "founded it, Robinhood bought it", href: "/resume/pluto" },
   { company: "NVIDIA", note: "dev tools, GeForce Now", href: "/resume/nvidia" },
   { company: "Bridgewater", note: "learned to say the true thing", href: "/resume/bridgewater-associates" },
 ];
