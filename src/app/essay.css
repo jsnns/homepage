@@ -1,0 +1,84 @@
+/* Direction 4b — essay view styles. */
+
+/* Drop cap on the paragraph that opens the essay (first p after BlogHeader).
+   Skipped when the essay opens on an italic epigraph. */
+.essay-body > header ~ p:first-of-type:not(:has(> em:first-child))::first-letter {
+  float: left;
+  font-size: 54px;
+  line-height: 0.82;
+  font-weight: 600;
+  color: rgb(var(--accent-rgb));
+  padding: 4px 9px 0 0;
+}
+
+/* Section break: three small squares, first one red (styles the MDX `---`). */
+.essay-body hr {
+  border: 0;
+  width: 6px;
+  height: 6px;
+  background: rgb(var(--accent-rgb));
+  box-shadow: 16px 0 #d9cfbc, 32px 0 #d9cfbc;
+  margin: 28px 0;
+}
+
+/* LaTeX-paper register for formal appendices (see Appendix.tsx). */
+.appendix {
+  counter-reset: appendix-section;
+}
+
+.appendix-body {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Number the appendix subsections: "### Setup" renders as h4 → "A.1 Setup". */
+.appendix-body h4 {
+  counter-increment: appendix-section;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.appendix-body h4::before {
+  content: "A." counter(appendix-section) "  ";
+  color: rgb(var(--accent-rgb));
+  font-variant-numeric: tabular-nums;
+}
+
+.appendix-body .katex {
+  font-size: 1.12em;
+}
+
+.appendix-body .katex-display {
+  margin: 0;
+}
+
+/* Booktabs table: rules above/below, no interior borders. */
+.appendix-body table {
+  border-top: 2px solid #14110d;
+  border-bottom: 2px solid #14110d;
+  font-size: 14px;
+}
+
+.appendix-body thead {
+  border-bottom: 1px solid #14110d;
+}
+
+.appendix-body td {
+  border-bottom: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Tufte-style margin notes: on wide screens the essay column reserves a
+   168px rail (see BlogLayout's md padding); sidenotes float into it. */
+@media (min-width: 768px) {
+  .sidenote {
+    float: right;
+    clear: right;
+    width: 168px;
+    margin-right: -204px;
+    margin-bottom: 30px;
+  }
+}

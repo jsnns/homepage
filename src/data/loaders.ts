@@ -9,6 +9,14 @@ export interface BaseMetadata {
   parsedDate: DateTime;
   category: string;
   unessay?: boolean;
+  /** Standfirst shown under the title in the essay view. */
+  deck?: string;
+  /** Topic tags shown in the essay meta column. */
+  tags?: string[];
+  /** Kind label in the meta column; defaults to "Essay". */
+  kind?: string;
+  /** Slugs of related essays for the footer. */
+  related?: string[];
 }
 
 // find all metadata.ts files in the app/thoughts/** directories

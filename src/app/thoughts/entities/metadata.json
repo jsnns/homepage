@@ -1,4 +1,7 @@
 {
   "title": "Entities: The New Work",
-  "date": "2026-06-13"
+  "date": "2026-06-13",
+  "deck": "The minds that ran my company, until the afternoon they went dark.",
+  "tags": ["Spawn", "Entities"],
+  "related": ["phantom-nodes", "how-we-build-2-0", "branding-for-ai-agents"]
 }

@@ -21,8 +21,13 @@ export const Age = () => {
 
   return (
     <>
-      <span className="text-accent">{int}</span>
-      <span className="text-accent text-xs">.{dec}</span> year-old
+      <span className="text-accent" suppressHydrationWarning>
+        {int}
+      </span>
+      <span className="text-accent text-xs" suppressHydrationWarning>
+        .{dec}
+      </span>{" "}
+      year-old
     </>
   );
 };

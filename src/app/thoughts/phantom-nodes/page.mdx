@@ -1,4 +1,7 @@
 import { BlogHeader } from "@/components/BlogHeader";
+import { BlogFooter } from "@/components/BlogFooter";
+import { Sidenote, Bands } from "@/components/Sidenote";
+import { Appendix, Eq, M } from "@/components/Appendix";
 import { enhanceMetadata } from "@/data/loaders";
 import meta from "./metadata.json";
 
@@ -6,15 +9,29 @@ export const metadata = enhanceMetadata(meta);
 
 <BlogHeader metadata={metadata} />
 
+<Sidenote label="Caveat" accent>
+  A caveat up front: these are establishment-level data, not a clean sample of
+  venture-backed tech startups. They include restaurants, dry cleaners, and law
+  firms alongside software companies. That makes them noisy. It may also make
+  them more revealing. If the same stability holds across that much variety,
+  the constraint is probably structural rather than methodological.
+</Sidenote>
+
 About 80% of new businesses survive their first year. Around 50% make it to five. Roughly 35% are still standing at ten. In the BLS data, those bands have stayed remarkably stable since the mid-1990s. Not through the dot-com boom, cloud, mobile, the explosion of available capital, or AI. Thirty years of new methods, new infrastructure, new everything. The same result.
 
-A caveat up front: these are establishment-level data, not a clean sample of venture-backed tech startups. They include restaurants, dry cleaners, and law firms alongside software companies. That makes them noisy. It may also make them more revealing. If the same stability holds across that much variety, the constraint is probably structural rather than methodological.
+<Sidenote label="The bands">
+  <Bands rows={[["1 yr", 80], ["5 yr", 50], ["10 yr", 35]]} />
+</Sidenote>
 
 For most of that time, smart people have been trying to fix this. Lean Startup, Customer Development, the Business Model Canvas. These frameworks won. They're in 97% of university entrepreneurship course syllabi. They're the orthodoxy. And the chart didn't move. 80% of new businesses still survive their first year. 50% still make it to five. 35% to ten.
 
 The usual assumption is that the survival rate is a problem and we haven't found the right solution yet. I think the survival rate is a measurement, and we've been misreading it.
 
 ---
+
+<Sidenote label="Phantom">
+  A node that looks feasible but has unresolved parents. The Webvan condition.
+</Sidenote>
 
 Webvan raised $375 million to do grocery delivery in 1999 and went bankrupt. The standard take is they were "too early." But too early just means the world hadn't arranged itself into the right shape yet. Grocery delivery needed smartphones, GPS tracking, a gig labor workforce trained by ride-sharing, consumer trust in strangers showing up at your door, real-time three-party payment processing. None of it existed. Instacart worked fifteen years later because the prerequisites had resolved, not because the founders were better.
 
@@ -24,7 +41,7 @@ Facebook needed the social norms that Myspace established. DoorDash needed the b
 
 Zoom out from any single example and a structure emerges. Every innovation sits in a directed graph with prerequisites: technologies, infrastructure, behavioral norms, regulatory conditions that must exist before the new thing becomes feasible. And the structure is combinatorial. Most important nodes have multiple parents from different branches that must all resolve simultaneously. That's why timing is so precise, and why the same innovations keep getting independently discovered at the same time. Calculus, the telephone, evolution by natural selection. The dependencies resolve, the node ripens, and whoever is standing closest picks it. The identity of the winner matters less than we like to think once the complements have resolved.
 
-You can't make a baby in one month by getting nine women pregnant.
+> You can't make a baby in one month by getting nine women pregnant.
 
 ---
 
@@ -68,21 +85,19 @@ The flat chart isn't a failure to help founders. It's a fingerprint of how progr
 
 The founders who repeat are the ones who can read the graph.
 
----
-
-## Mathematical Appendix
+<Appendix title="Mathematical Appendix">
 
 ### Setup
 
-Let **G** be a directed acyclic graph (DAG) where each node represents a potential innovation, company, or opportunity. Each node *i* has a set of parent nodes **P(i)** — its prerequisites.
+Let <M math="G" /> be a directed acyclic graph (DAG) where each node represents a potential innovation, company, or opportunity. Each node <M math="i" /> has a set of parent nodes <M math="P(i)" /> — its prerequisites.
 
-A node *i* becomes **feasible** at time *t* when all of its parents have been unlocked:
+A node <M math="i" /> becomes **feasible** at time <M math="t" /> when all of its parents have been unlocked:
 
-**feasible(i, t) = 1  if and only if  ∀ j ∈ P(i): unlocked(j, t) = 1**
+<Eq math="\text{feasible}(i, t) = 1 \iff \forall\, j \in P(i) : \text{unlocked}(j, t) = 1" />
 
 A node that appears feasible to an observer but has unresolved prerequisites is a **phantom node**:
 
-**phantom(i, t) = 1  if  feasible(i, t) = 0  and  perceived\_feasible(i, t) = 1**
+<Eq math="\text{phantom}(i, t) = 1 \quad \text{if} \quad \text{feasible}(i, t) = 0 \;\wedge\; \text{perceived\_feasible}(i, t) = 1" />
 
 This is the Webvan condition. The idea is legible before its complements have resolved.
 
@@ -90,44 +105,44 @@ This is the Webvan condition. The idea is legible before its complements have re
 
 At any time *t*, define:
 
-- **F(t)** = number of feasible nodes (real opportunities)
-- **Φ(t)** = number of phantom nodes (perceived but not yet feasible)
-- **N(t)** = number of new entrants (startups founded at time *t*)
-- **b** = average branching factor (child nodes exposed per unlock)
+- <M math="F(t)" /> = number of feasible nodes (real opportunities)
+- <M math="\Phi(t)" /> = number of phantom nodes (perceived but not yet feasible)
+- <M math="N(t)" /> = number of new entrants (startups founded at time <M math="t" />)
+- <M math="b" /> = average branching factor (child nodes exposed per unlock)
 
-When a node is unlocked, it exposes on average *b* new child nodes. Some of these will be immediately feasible (their other prerequisites already resolved), most won't. Let **α** be the fraction of newly exposed nodes that are immediately feasible. Then the frontier grows approximately as:
+When a node is unlocked, it exposes on average <M math="b" /> new child nodes. Some of these will be immediately feasible (their other prerequisites already resolved), most won't. Let <M math="\alpha" /> be the fraction of newly exposed nodes that are immediately feasible. Then the frontier grows approximately as:
 
-**F(t+1) ≈ F(t) + αb · unlocks(t) − unlocks(t)**
+<Eq math="F(t+1) \;\approx\; F(t) + \alpha b \cdot \text{unlocks}(t) - \text{unlocks}(t)" />
 
 The first term is new feasible nodes appearing. The second is feasible nodes being consumed by successful startups.
 
 ### The survival rate
 
-A startup founded at time *t* succeeds (survives to horizon *τ*) if it is probing a real node and wins the competition at that node. The probability decomposes as:
+A startup founded at time <M math="t" /> succeeds (survives to horizon <M math="\tau" />) if it is probing a real node and wins the competition at that node. The probability decomposes as:
 
-**S(τ) ≈ P(real node) · P(win | real node)**
+<Eq math="S(\tau) \;\approx\; P(\text{real node}) \cdot P(\text{win} \mid \text{real node})" />
 
 Where:
 
-**P(real node) = F(t) / \[F(t) + Φ(t)\]**
+<Eq math="P(\text{real node}) = \frac{F(t)}{F(t) + \Phi(t)}" />
 
 This is the ratio of real opportunities to total perceived opportunities. It's the structural term — what fraction of the things that look like good ideas actually are good ideas right now.
 
-**P(win | real node) ≈ 1 / k(t)**
+<Eq math="P(\text{win} \mid \text{real node}) \;\approx\; \frac{1}{k(t)}" />
 
-Where *k(t)* is the average number of entrants competing at each feasible node. This is where methods (search quality) and competitive dynamics (Red Queen) operate.
+Where <M math="k(t)" /> is the average number of entrants competing at each feasible node. This is where methods (search quality) and competitive dynamics (Red Queen) operate.
 
 ### Why the rate is stable
 
-The key claim is that **F(t) / \[F(t) + Φ(t)\]** is approximately constant over time. This happens if the graph is self-similar: the ratio of feasible to phantom nodes at the frontier looks the same regardless of the frontier's size.
+The key claim is that <M math="F(t) \,/\, [F(t) + \Phi(t)]" /> is approximately constant over time. This happens if the graph is self-similar: the ratio of feasible to phantom nodes at the frontier looks the same regardless of the frontier's size.
 
 Intuitively, each generation of the graph has a similar combinatorial structure. When a GPT (general-purpose technology) widens the frontier, it exposes many new nodes, but most of them have unresolved co-prerequisites from other branches. The fraction that are immediately feasible stays roughly constant because the dependency structure at the new frontier is statistically similar to the old frontier.
 
-Additionally, N(t) is coupled to F(t). More feasible nodes → more visible opportunities → more entrants. If N(t) scales roughly linearly with F(t), then k(t) stays roughly constant too. Both terms in the survival equation hold steady.
+Additionally, <M math="N(t)" /> is coupled to <M math="F(t)" />. More feasible nodes → more visible opportunities → more entrants. If <M math="N(t)" /> scales roughly linearly with <M math="F(t)" />, then <M math="k(t)" /> stays roughly constant too. Both terms in the survival equation hold steady.
 
 The result:
 
-**S(τ) ≈ constant**
+<Eq math="S(\tau) \;\approx\; \text{constant}" />
 
 Not because nothing changes, but because the structural quantities change together.
 
@@ -179,3 +194,7 @@ However, high *b* doesn't change the survival rate, because the new frontier has
 | S(τ) | Survival rate at horizon *τ* |
 | M | Search quality (methods) |
 | C | Competitive intensity |
+
+</Appendix>
+
+<BlogFooter metadata={metadata} />

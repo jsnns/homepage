@@ -19,6 +19,9 @@ const config: Config = {
         foreground: "rgb(var(--foreground-rgb))",
         background: "rgb(var(--background-rgb))",
       },
+      fontFamily: {
+        mono: ["var(--font-jbmono)", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
     },
   },
   plugins: [],

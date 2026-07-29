@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Source_Serif_4 } from "next/font/google";
+import { JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/app/globals.css";
 import Script from "next/script";
 
-const ss4 = Source_Serif_4({ subsets: ["latin"] });
+const ss4 = Source_Serif_4({ subsets: ["latin"], axes: ["opsz"] });
+const jbMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jbmono",
+});
 
 export const metadata: Metadata = {
   title: "Jacob Sansbury — Founder, Engineer, Designer",
@@ -26,7 +31,7 @@ export default function RootLayout({
       />
       <SpeedInsights />
       <body>
-        <div className={ss4.className}>{children}</div>
+        <div className={`${ss4.className} ${jbMono.variable}`}>{children}</div>
       </body>
     </html>
   );

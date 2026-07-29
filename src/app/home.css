@@ -1,0 +1,20 @@
+/* Direction 6 ("one screen, sharpened") — homepage-only styles.
+   (.paper lives in globals.css, shared with the essay view.) */
+
+.rail-wordmark {
+  position: absolute;
+  left: 24px;
+  bottom: 44px;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  font-family: var(--font-jbmono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #c0b8a6;
+  pointer-events: none;
+}
+
+.thought-row:hover {
+  background: rgba(255, 59, 20, 0.07);
+}

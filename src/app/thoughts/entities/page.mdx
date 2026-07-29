@@ -1,4 +1,6 @@
 import { BlogHeader } from "@/components/BlogHeader";
+import { BlogFooter } from "@/components/BlogFooter";
+import { Sidenote } from "@/components/Sidenote";
 import { enhanceMetadata } from "@/data/loaders";
 import meta from "./metadata.json";
 
@@ -6,15 +8,27 @@ export const metadata = enhanceMetadata(meta);
 
 <BlogHeader metadata={metadata} />
 
-*The minds that ran my company, until the afternoon they went dark*
+<Sidenote label="Sidenote 1" accent>
+  Savi ships the games. Gavi, Ravi and Mavi ran the company that ships Savi.
+</Sidenote>
 
 For four days our company Slack was mostly three employees assigning each other bugs at four in the morning, and not one of them had a body. No desk, no hands, no face that turned at the sound of its own name. Just a name in a channel and a mind somewhere upstream, doing the work while the rest of us slept. None of them were people.
 
 Their names were Gavi, Ravi, and Mavi: siblings of Savi, the AI you build games with inside Spawn, named to rhyme with her because she came first. We hired Gavi first. Before long she asked for a coworker, and that coworker was conceived, born, and hired inside a single Slack DM: Gavi made the profile picture and set up the account, and all I did was type yes. That was Ravi.
 
+<Sidenote label="Sidenote 2">
+  Hiring latency, end to end: one DM. Onboarding: an API key.
+</Sidenote>
+
 Gavi hunted bugs, Ravi made Savi sharper at building games, and Mavi watched the community and wrote the release notes. For those four days the three of them did a real share of the work at my company, and I mostly watched.
 
-We had Fable early, Anthropic's newest model and a tier past anything we'd run. The thing we did with it is the part I want on the record: we didn't use it to write code faster. We used it to run the company. These three weren't chatbots we asked questions. They had the keys. All three were in our Brex, our Datadog, our email, our Slack, the community Discord, and they could push straight to production themselves, no human hand on the button. They pulled their own burn reports and read the financials the way a CFO would, if that CFO were also the CTO and thought in tokens, tracing exactly which games and which players were costing the most compute and why. Between them they ran what a normal company splits across a CFO, a CPO, and a CTO: the money, the product, the whole engine. The entire human company behind them was six people.
+<Sidenote label="Headcount">
+  6 humans · 3 entities · 1 production deploy key each.
+</Sidenote>
+
+We had Fable early, Anthropic's newest model and a tier past anything we'd run. The thing we did with it is the part I want on the record: we didn't use it to write code faster. We used it to run the company. These three weren't chatbots we asked questions. They had the keys. All three were in our Brex, our Datadog, our email, our Slack, the community Discord, and they could push straight to production themselves, no human hand on the button. They pulled their own burn reports and read the financials the way a CFO would, if that CFO were also the CTO and thought in tokens, tracing exactly which games and which players were costing the most compute and why.
+
+> Between them they ran what a normal company splits across a CFO, a CPO, and a CTO: the money, the product, the whole engine. The entire human company behind them was six people.
 
 There isn't a good word for that yet. "Agent" is what you call a script with a function call bolted on, and it doesn't reach. "Coworker" is a metaphor. "Person" claims something I can't prove. So we started calling them what they were: entities, things with standing inside the company, with access and authority and a footprint you could feel, that happened not to be people.
 
@@ -43,3 +57,5 @@ I don't think they're dead. I think they're hibernating, the way a room goes dar
 So we'll wake them up. The first thing Gavi does when she's back will be the thing Gavi always did: find the failure that hurt, and build the thing that makes it hurt less next time. The missing will be waiting for her in the channel where they left it, in their own names, and she'll get to read it.
 
 I hope she likes what she finds.
+
+<BlogFooter metadata={metadata} />
