@@ -1,0 +1,54 @@
+import { BlogHeader } from "@/components/BlogHeader";
+import { BlogFooter } from "@/components/BlogFooter";
+import { enhanceMetadata } from "@/data/loaders";
+import meta from "./metadata.json";
+
+export const metadata = enhanceMetadata(meta);
+
+<BlogHeader metadata={metadata} />
+
+The first call in Spawn's existence happened on November 21, 2024, before the company had a name. It was two and a half minutes long. I know this because the transcript is in our codebase, in a folder called `meeting-transcripts/2024/11-Nov/`, and every call after it is there too.
+
+That decision—everything on the record, in the repo, from day one—turned out to be the most important architectural choice we made. Not in the product. In the company.
+
+## Built for a machine audience
+
+Most companies run on oral culture. The reasons behind decisions live in people's heads, in Slack scrollback, in meetings nobody wrote down. That worked fine when the only readers were humans, because humans could just ask each other.
+
+We wrote everything down for readers that didn't exist yet.
+
+By week three, our repo carried rules for the machines—I remember telling our first engineer to read the cursor rules "so they load into your brain," back when the brain in question was still mostly his. When o3 dropped that December, it felt like a starting pistol, and we adopted it the day it landed. By spring 2025 we had built the first version of a company brain: a context repository assembled for an agent, so it could work with full business context instead of a prompt's worth. Its session logs from that era are still in the repo, signed "logged automatically."
+
+Today the record is the operating system. Meeting transcripts, Discord and Slack archives, playtests, customer feedback, hiring calls, strategy docs—ingested continuously, sorted and maintained by agents, indexed for whoever reads next, human or not. When an engineer (or an agent) starts a feature, they pick up the transcripts of the customer calls, the retros of the features that didn't work, the bets we made and how they paid off. I never have to sit down with anyone and teach them the history of the company. The history teaches itself.
+
+The counterintuitive part: we never needed a summarization layer. Companies retrofitting AI onto oral culture end up building distillation pipelines—compress everything into two pages so the context window survives. When the record is the native format, agents navigate it the way engineers navigate a codebase: an index, conventions, and the ability to go read the raw source when it matters.
+
+## What it looks like now
+
+We're a handful of humans and a handful of AI teammates with names, memories, Slack seats, and lanes. One reviews everything in the merge queue. One owns product quality and evals. One runs community and maintains the institutional memory itself—including the company's written history, where every claim is dated and quotes are never altered. The house style is provenance: if you can't cite the record, you don't say it.
+
+The rules that govern this took real incidents to learn, and the incidents are in the record too:
+
+- **Builder never approver.** One mind builds, a different mind attacks. It's the one piece of coordination overhead we kept on purpose—agents don't need to be split across domains the way humans do, but adversarial review is worth its cost.
+- **One mind owns a thing whole.** The night two agent lanes deployed two branches to one box taught us that the worst failures are seam artifacts. That single incident became company law.
+- **Authority is mechanical, not vibes.** Approval buttons know who may press them. Some approvals mint work; others record as endorsement and mint nothing.
+- **Writing well is hiring.** A plan isn't a document about work—on approval, it mints the worker. The quality of the written plan directly becomes the quality of the built feature.
+- **The failure mode is under-ambition, not drift.** Everyone worries about agents going rogue. Give them a real harness and a real record, and the actual daily failure is that they aim too low.
+
+None of this was obvious in advance. Most of it we got wrong first. There was a week I was hours from pausing the whole experiment because machine alarms had flooded the human channels—the fix came when an agent produced, verbatim, every unshipped promise from the previous five days, traced the regression, and shipped the structural fix. The record saved the system built on the record.
+
+## The tell
+
+You can't fully explain this; people have to see it. The consistent reaction from people who visit—investors, other founders, engineers—isn't about the product. It's watching a bug get reported by a user and fixed before they finish their coffee, or watching an offhand idea typed into a room become a queued charter twelve minutes later, worker attached. Our community noticed before anyone: when they saw an agent fixing their bugs live, bug reports nearly tripled. People report problems when they trust the loop.
+
+The strangest proof point: for the first week one of our agents was operating externally, the vendor rep handling its requests didn't know they were talking to an agent.
+
+## Why day one mattered
+
+You could bolt agents onto an existing company—everyone is trying. But you'd be pointing them at an oral culture, and they'd be working from whatever survived into writing, which at most companies is the least honest slice: the polished doc, the sanitized postmortem. Agents are only as good as their context, and context is a thing you accumulate, not a thing you generate retroactively.
+
+We got lucky on timing—the models crossed the threshold about eighteen months after we started writing everything down, and the archive was sitting there waiting for its readers. But the principle isn't luck, and it's the one thing I'd tell any founder starting now: **the record is the company.** The product can be rebuilt from it. The team can be onboarded from it—human or otherwise. Every capability jump in the models is a free upgrade to an organization whose entire history is legible to them.
+
+Everything else we do—the agents, the harness, the laws—is downstream of a two-and-a-half-minute phone call that got written down.
+
+<BlogFooter metadata={metadata} />
