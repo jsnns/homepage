@@ -14,6 +14,7 @@ export interface CuratedThought {
 }
 
 export const THOUGHTS_INDEX: CuratedThought[] = [
+  { slug: "the-company-is-the-record", annotation: "written for readers that didn't exist yet", startHere: true },
   { slug: "entities", annotation: "three employees, no bodies, all the keys", startHere: true },
   { slug: "phantom-nodes", annotation: "the survival rate is a measurement, not a grade", startHere: true },
   { slug: "engines-drown-so-build-a-sail", annotation: "build a sail; the wind is picking up", startHere: true },
