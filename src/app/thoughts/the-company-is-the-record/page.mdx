@@ -9,19 +9,19 @@ export const metadata = enhanceMetadata(meta);
 
 The first call in Spawn's existence happened on November 21, 2024, before the company had a name. It was two and a half minutes long. I know this because the transcript is in our codebase, in a folder called `meeting-transcripts/2024/11-Nov/`, and every call after it is there too.
 
-Everything on the record, in the repo, from day one. That turned out to be the most important architectural choice we made, and it wasn't a choice about the product. It was a choice about the company.
+Everything on the record, in the repo, from day one. Of all the architectural choices we made in those first weeks, that one turned out to matter most, and it wasn't about the product at all.
 
 ## Built for a machine audience
 
-Most companies run on oral culture. The reasons behind decisions live in people's heads, in Slack scrollback, in meetings nobody wrote down. That worked fine when the only readers were humans, because humans could just ask each other.
+Most companies run on oral culture: the reasons behind decisions live in people's heads, in Slack scrollback, in meetings nobody wrote down. As long as the only readers were humans, that was fine, because humans can just ask each other.
 
 We wrote everything down for readers that didn't exist yet.
 
 By week three, our repo carried rules for the machines. I remember telling our first engineer to read the cursor rules "so they load into your brain," back when the brain in question was still mostly his. When o3 dropped that December, it felt like a starting pistol, and we adopted it the day it landed. By spring 2025 we had built the first version of a company brain: a context repository assembled for an agent, so it could work with full business context instead of a prompt's worth. Its session logs from that era are still in the repo, signed "logged automatically."
 
-Today the record is the operating system. Meeting transcripts, Discord and Slack archives, playtests, customer feedback, hiring calls, and strategy docs are ingested continuously, sorted and maintained by agents, and indexed for whoever reads next, human or not. When an engineer (or an agent) starts a feature, they pick up the transcripts of the customer calls, the retros of the features that didn't work, the bets we made and how they paid off. I never have to sit down with anyone and teach them the history of the company. The history teaches itself.
+Today the record is the operating system. Meeting transcripts, Discord and Slack archives, playtests, customer feedback, hiring calls, and strategy docs are ingested continuously, sorted and maintained by agents, and indexed for whoever reads next, human or not. When an engineer (or an agent) starts a feature, they pick up the transcripts of the customer calls, the retros of the features that didn't work, the bets we made and how they paid off. So I never have to sit down with anyone, human or model, and teach them the history of the company; it teaches itself.
 
-The counterintuitive part is that we never needed a summarization layer. Companies retrofitting AI onto oral culture end up building distillation pipelines that compress everything into two pages so the context window survives. When the record is the native format, agents navigate it the way engineers navigate a codebase: an index, conventions, and the ability to go read the raw source when it matters.
+What we never needed, counterintuitively, was a summarization layer. Companies retrofitting AI onto oral culture end up building distillation pipelines that compress everything into two pages so the context window survives. When the record is the native format, agents navigate it the way engineers navigate a codebase: an index, conventions, and the ability to go read the raw source when it matters.
 
 ## What it looks like now
 
@@ -35,11 +35,11 @@ The rules that govern this took real incidents to learn, and the incidents are i
 - **Writing well is hiring.** A plan is not a document about work; on approval, it mints the worker. The quality of the written plan directly becomes the quality of the built feature.
 - **The failure mode is under-ambition, not drift.** Everyone worries about agents going rogue. Give them a real harness and a real record, and the actual daily failure is that they aim too low.
 
-None of this was obvious in advance. Most of it we got wrong first. There was a week I was hours from pausing the whole experiment because machine alarms had flooded the human channels. What saved it: an agent produced, verbatim, every unshipped promise from the previous five days, traced the regression, and shipped the structural fix. The record saved the system built on the record.
+None of this was obvious in advance. Most of it we got wrong first. There was a week I was hours from pausing the whole experiment because machine alarms had flooded the human channels. What saved it was an agent producing, verbatim, every unshipped promise from the previous five days, tracing the regression, and shipping the structural fix. The system built on the record was saved by the record.
 
 ## The tell
 
-You can't fully explain this; people have to see it. The consistent reaction from visitors (investors, other founders, engineers) has less to do with the product than with watching a bug get reported by a user and fixed before they finish their coffee, or watching an offhand idea typed into a room become a queued charter twelve minutes later, worker attached. Our community noticed before anyone: when they saw an agent fixing their bugs live, bug reports nearly tripled. People report problems when they trust the loop.
+You can't fully explain this; people have to see it. The consistent reaction from visitors (investors, other founders, engineers) has less to do with the product than with watching a bug get reported by a user and fixed before they finish their coffee, or watching an offhand idea typed into a room become a queued charter twelve minutes later, worker attached. Our community noticed before anyone. When they saw an agent fixing their bugs live, bug reports nearly tripled, because people report problems when they trust the loop.
 
 Strangest proof point: for the first week one of our agents was operating externally, the vendor rep handling its requests didn't know they were talking to an agent.
 
