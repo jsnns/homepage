@@ -102,5 +102,22 @@ export async function getPostMetadata<T extends BaseMetadata>(
 }
 
 export const enhanceMetadata = <T extends BaseMetadata>(metadata: T): T => {
-  return { ...metadata, parsedDate: DateTime.fromISO(metadata.date) };
+  const parsedDate = DateTime.fromISO(metadata.date);
+  const og = new URLSearchParams({ title: metadata.title });
+  if (parsedDate.isValid) og.set("date", parsedDate.toFormat("MMMM yyyy"));
+  if (metadata.deck) og.set("deck", metadata.deck);
+  const ogImage = `/og?${og.toString()}`;
+  return {
+    ...metadata,
+    parsedDate,
+    openGraph: {
+      title: metadata.title,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      images: [ogImage],
+    },
+  };
 };

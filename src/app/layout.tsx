@@ -11,10 +11,28 @@ const jbMono = JetBrains_Mono({
   variable: "--font-jbmono",
 });
 
+const homeOg =
+  "/og?" +
+  new URLSearchParams({
+    title: "Jacob Sansbury",
+    deck: "Half of my employees don't have bodies.",
+    kicker: "SPAWN · SAN FRANCISCO",
+  }).toString();
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://workbyjacob.com"),
   title: "Jacob Sansbury — Founder, Engineer, Designer",
   description:
     "Jacob Sansbury is the Founder of Spawn.co, a platform for creating and sharing interactive experiences.",
+  openGraph: {
+    title: "Jacob Sansbury",
+    images: [{ url: homeOg, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jacob Sansbury",
+    images: [homeOg],
+  },
 };
 
 export default function RootLayout({
