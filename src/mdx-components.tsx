@@ -19,7 +19,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: (props) => <p className="my-3" {...props} />,
     ul: (props) => <ul className="list-disc ml-5 my-3" {...props} />,
     ol: (props) => <ol className="list-decimal ml-5 my-3" {...props} />,
-    li: (props) => <li className="my-2" {...props} />,
+    li: (props) => <li className="my-0.5" {...props} />,
     a: (props) => (
       <a
         className="underline decoration-[#b0a794] decoration-dotted underline-offset-[3px] hover:text-accent"
