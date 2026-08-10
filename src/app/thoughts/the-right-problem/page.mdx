@@ -15,11 +15,11 @@ Before we even have a chance to find the right problems, we need a way to think 
 
 To start — it's easier to understand problems in specific contexts like solving a math equation, finding a profitable way to deliver a good or service, handling traffic in a distributed system, etc., but it's a generic definition of problem which evades me.
 
-The first step I took to find a generic definition was to make a big list of different problems in business, science, engineering, self-improvement, personal relationships, and economics, then read them a few times and let them sizzle in my unconscious while I went about life for a while. Eventually, halfway through watching 21 Jump Street with a couple of friends, a framework came to me and I'm taking a moment to write it down:
+The first step I took to find a generic definition was to make a big list of different problems in business, science, engineering, self-improvement, personal relationships, and economics, then read them over a few times and let them sizzle in my unconscious while I went about my life for a while. Eventually, halfway through watching 21 Jump Street with a couple of friends, a framework came to me and I'm taking a moment to write it down:
 
 ## Defining a generic problem
 
-It turns out you can define a generic problem with just a few arguments. You have a current state `S` and a function `f` that describes its dynamics, plus a desired state `S'` that satisfies some condition or goal, all subject to a set of constraints `C`.
+It turns out you only need a few pieces to define a generic problem. There's a current state `S` and a function `f` that describes its dynamics, plus a desired state `S'` that satisfies some condition or goal, all subject to a set of constraints `C`.
 
 The problem, then, is to find or design a transformation `f'` such that `f'(S) = S'`, optimizing for `C`. In practice, finding `f'` tends to mean diagnosing (understanding `f`) before you can design anything (proposing `f'`), and only then does implementing (applying `f'`) make sense.
 
@@ -30,8 +30,6 @@ I like this abstraction because it fits the essence of most problem-solving scen
 **Everyday life:** Say the current state is `S = keys are lost`. Then `f'` is whatever set of steps actually finds the keys, which is to say retracing your steps, checking the usual spots, calling the last place you remember having them, until you reach `S' = keys are found`. The constraints `C` here might be how much time you have to search, which spaces you can physically get into, and whatever state your memory happens to be in that morning.
 
 **Business:** Here the current state `S` is one where `f(customer engagement strategy) = high churn`. So `f'` is some improved version of how you engage customers, maybe personalized outreach, better onboarding, more proactive support, that gets you to `S' = low churn`. Your constraints `C` are the usual suspects, budget and team capacity and whatever is technically feasible.
-
-**Engineering:** Current state `S` where `f(solar panel design) = low efficiency`. The solution function `f'` implements improvements to the design (e.g., new materials, better light absorption techniques), leading to desired state `S' = high efficiency`. Constraints `C` might include material costs, manufacturing feasibility, and durability requirements.
 
 # The right problems
 

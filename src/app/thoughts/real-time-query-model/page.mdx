@@ -9,9 +9,7 @@ export const metadata = enhanceMetadata(meta);
 
 Lately I've been thinking about what an LLM actually spends its weights on. A huge fraction of the parameters in something like GPT-4 go toward memorizing facts, which is to say a static snapshot of the world as of whenever the last training run finished. In large part the model is an enormous and very expensive fact database that happens to also reason.
 
-Which raises the question this post is actually about: are data and reasoning separable? Does it really make sense for the weights to encode all the precedents, and is that anywhere close to the most efficient use of them?
-
-The obvious problem with a learned representation of the world's data is that it goes stale the moment training ends, so a model trained through 2021 knows nothing about 2023. The one that bothers me more is capacity, since there's more information out there than any set of weights could ever hold, and the fastest-moving information happens to be what weights hold worst anyway.
+Which raises the question this post is actually about: are data and reasoning separable? Does it really make sense for the weights to encode all the precedents, and is that anywhere close to the most efficient use of them? A learned copy of the world goes stale the moment training ends, after all, so a model trained through 2021 knows nothing about 2023, and beyond staleness there's more information out there than any set of weights could ever hold, with the fastest-moving information being what weights hold worst anyway.
 
 ## Training with tools from the start
 

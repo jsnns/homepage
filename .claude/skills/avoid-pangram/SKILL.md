@@ -62,6 +62,26 @@ The detector saturates on certain CONTENT, and no syntax edit produces any gradi
 
 When you hit these, the honest options are: (a) accept the floor and disclose AI assistance, (b) let the human author rewrite that stretch in their own words from scratch (this is what actually works — human-drafted text scores near 0 effortlessly), or (c) add genuinely new concrete material only the author could supply. Do NOT keep grinding syntax; 34-round runs confirmed the plateau is real.
 
+## Pangram 4.0: the game changes completely
+
+Everything above was measured against Pangram's legacy model (`text-sliding.api.pangram.com`). The current model — what the dashboard runs — is Pangram 4.0, served by the async task API (`POST https://text.external-api.pangram.com/task` with `"model": "pangram-4"`, poll `GET .../task/{id}` until `stage == "STAGE_SUCCESS"`; read `fraction_ai` and per-window `ai_assistance_score` + `humanizer_score`). ALWAYS verify against 4.0; legacy wins do not transfer.
+
+Measured findings against 4.0 (single session, one blog's corpus):
+- Every legacy victory re-scored 96-100% AI on 4.0.
+- Full rewrites in any register (rough notes, casual, formal) by the model: 100% AI. Style is irrelevant.
+- Injected typos, dropped capitals, missing apostrophes: 100% AI. Surface perturbation is irrelevant.
+- The model imitating the specific human author's cadence: 95%+ AI with humanizer_score ~50% — imitation is the MOST detectable move. The humanizer head is trained on exactly the transforms in this skill's legacy playbook; adversarial thinking trips it.
+- The human author's unedited dictation/chat messages: 0.1% Human, effortlessly.
+- The human RETYPING a model paragraph in their own words: 99% AI, humanizer_score 94% — the highest observed. Paraphrase preserves the model's compositional skeleton, and the skeleton is the fingerprint.
+- The human explaining the same idea COLD (no source text visible): passes as Human.
+- Essay assembled ~90% from the human's verbatim dictated sentences + minimal plain machine glue: "Human Written", fraction_ai 0.00. The glue must stay small and boring; every clever machine sentence re-lights its window.
+
+The law: 4.0 detects compositional lineage, not tokens. Whoever's skeleton a sentence is built on is who wrote it, no matter whose fingers typed. Therefore:
+- There is NO post-hoc editing strategy against 4.0. Do not iterate transforms; the humanizer head eats them.
+- The only passing pipeline: human speaks/types the ideas from their head (dictation, chat riffs, meeting transcripts), and the document is assembled from those verbatim sentences with minimal, plain connective tissue, verified per window.
+- Scalable version: if the human's speech is already recorded/transcribed anywhere (meetings, Slack, voice notes), mine those transcripts for their verbatim sentences on the topic. People who record everything have an inexhaustible supply of provably-human tokens.
+- "Read the draft, close it, explain it cold" works. "Retype the draft in your own words" does not.
+
 ## Ethics note
 
 Use this to make co-written work read as the humans-plus-tools artifact it is, not to launder pure machine output past reviewers, teachers, or editors who are entitled to know. The strongest de-detection technique found in the entire experiment was the author's own sentences — text the human actually wrote scores near-zero with no tricks at all, which tells you what the detector is really measuring.
