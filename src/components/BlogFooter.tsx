@@ -1,7 +1,6 @@
 import { BaseMetadata, getPostMetadatas } from "@/data/loaders";
 import { PostMetadata } from "@/data/post";
 import Link from "next/link";
-import { Colophon } from "@/components/Colophon";
 
 export const BlogFooter = async ({ metadata }: { metadata: BaseMetadata }) => {
   const posts = await getPostMetadatas<PostMetadata>("src/app/thoughts");
@@ -18,6 +17,8 @@ export const BlogFooter = async ({ metadata }: { metadata: BaseMetadata }) => {
   const related = (metadata.related ?? [])
     .map((slug) => sorted.find((p) => p.slug === slug))
     .filter((p): p is PostMetadata => !!p);
+
+  if (!next && related.length === 0) return null;
 
   return (
     <footer className="clear-both mt-[64px] border-t border-[#e4dcca] pt-[22px] md:-mr-[204px]">
@@ -56,7 +57,6 @@ export const BlogFooter = async ({ metadata }: { metadata: BaseMetadata }) => {
         </div>
       )}
       </div>
-      <Colophon />
     </footer>
   );
 };

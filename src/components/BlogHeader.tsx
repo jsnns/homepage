@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { BaseMetadata, getPostMetadatas } from "@/data/loaders";
 import { BlogNav } from "./BlogNav";
+import { Colophon } from "./Colophon";
 
 // metadata.json files carry no slug (the loader derives it from the dirname),
 // so resolve this essay's slug by title against the loaded corpus.
@@ -60,6 +61,7 @@ export const BlogHeader = async ({ metadata }: { metadata: BaseMetadata }) => {
         {/* meta column — floats into the right rail on desktop */}
         <div className="sidenote hidden border-l border-[#e4dcca] pl-4 font-mono text-[10px] uppercase leading-[2] tracking-[0.1em] text-[#a39a89] md:block">
           <MetaLines metadata={metadata} length={length} />
+          <Colophon />
         </div>
 
         <h1 className="text-[34px] font-semibold leading-[1.06] tracking-[-0.018em] text-accent md:text-[42px] md:leading-[1.04]">
@@ -72,8 +74,11 @@ export const BlogHeader = async ({ metadata }: { metadata: BaseMetadata }) => {
         )}
 
         {/* meta — single mono line on mobile */}
-        <div className="mt-4 flex flex-wrap gap-x-3 font-mono text-[9px] uppercase tracking-[0.12em] text-[#a39a89] md:hidden [&>div.text-accent]:mt-0">
-          <MetaLines metadata={metadata} length={length} />
+        <div className="mt-4 md:hidden">
+          <div className="flex flex-wrap gap-x-3 font-mono text-[9px] uppercase tracking-[0.12em] text-[#a39a89] [&>div.text-accent]:mt-0">
+            <MetaLines metadata={metadata} length={length} />
+          </div>
+          <Colophon />
         </div>
       </div>
 
