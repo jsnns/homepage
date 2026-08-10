@@ -7,30 +7,24 @@ export const metadata = enhanceMetadata(meta);
 
 <BlogHeader metadata={metadata} />
 
-Look at what an LLM spends its weights on. A huge fraction of the parameters in a model like GPT-4 go toward memorizing facts—a static snapshot of the world as of the last training run. The model is, in large part, an enormous and very expensive fact database that happens to also reason.
+Lately I've been thinking about what an LLM actually spends its weights on. A huge fraction of the parameters in something like GPT-4 go toward memorizing facts, which is to say a static snapshot of the world as of whenever the last training run finished. In large part the model is an enormous and very expensive fact database that happens to also reason.
 
-That raises the question this post is actually about: **are data and reasoning separable?** Does it make sense for the weights to encode all the precedents? Is that remotely the most efficient use of them?
+Which raises the question this post is actually about: are data and reasoning separable? Does it really make sense for the weights to encode all the precedents, and is that anywhere close to the most efficient use of them?
 
-The problem with a learned representation of the world's data is twofold. It goes stale the moment training ends—a model trained through 2021 knows nothing about 2023. And it's capped by capacity: there is more information in the world than any set of weights can hold, and the fastest-updating information is exactly what the weights hold worst.
+The obvious problem with a learned representation of the world's data is that it goes stale the moment training ends, so a model trained through 2021 knows nothing about 2023. The one that bothers me more is capacity, since there's more information out there than any set of weights could ever hold, and the fastest-moving information happens to be what weights hold worst anyway.
 
-## The proposal
+## Training with tools from the start
 
-So: could you train an LLM *with tools* such that it never memorizes facts at all—it just learns how to access them?
+What I keep wondering is whether you could train an LLM *with tools*, so it never memorizes facts at all and only learns how to get at them. And I don't mean retrieval bolted on at inference time, which is basically what retrieval-augmented generation is, a search step grafted onto a model that already spent its capacity memorizing. I mean during training itself, so that from day one the model learns facts live outside it.
 
-This is not retrieval bolted on at inference time. Retrieval-augmented generation grafts a search step onto a model that already spent its capacity memorizing. The interesting version happens at training time: the model learns from the start that facts live outside itself.
+The mechanics would look something like this. You reserve part of the context window as a live data feed, and the model gets a pair of special tokens, `[START_QUERY]`...`[END_QUERY]`, that let it emit a retrieval query in the middle of generating. An external system takes the query, runs it against the corpus, and drops whatever came back into the context between `[START_RESULT]` and `[END_RESULT]`. Training happens end-to-end with that whole loop running, which means the model has to figure out when a query is worth making, how to phrase it, and integrating the results, instead of learning the facts themselves.
 
-Concretely:
-
-1. Reserve part of the context window as a live data feed.
-2. Give the model special tokens—`[START_QUERY]`...`[END_QUERY]`—to emit a retrieval query mid-generation; an external system runs it against the corpus and injects results back between `[START_RESULT]` and `[END_RESULT]`.
-3. Train the model end-to-end with this loop in place, so it learns when to query, how to phrase queries, and how to integrate what comes back—instead of learning the facts themselves.
-
-If facts are always one query away during training, there's no gradient pressure to memorize them. The weights get spent on the thing only weights can do: reasoning. And you get the other properties for free—knowledge that updates by updating the corpus, not retraining, and models you can specialize post-training just by changing what data they can reach.
+The point is that if facts are always one query away during training, there's no gradient pressure to memorize them. The weights get spent on the one thing only weights can do, reasoning. And a couple of nice properties fall out for free, since knowledge now updates whenever you update the corpus rather than when you retrain, and you can specialize a model after training just by changing what data it's allowed to reach.
 
 ## What's hard about it
 
-Retrieval has to be fast enough to sit inside the generation loop. Coherence is tricky when the context window keeps changing underneath the model. And teaching a model to write good queries is its own learning problem—probably some mix of supervised examples and reinforcement.
+Plenty. Retrieval has to be fast enough to sit inside the generation loop, for one. Coherence gets tricky when the context window keeps changing underneath the model mid-generation. Teaching a model to write good queries is its own learning problem entirely too, probably some mix of supervised examples and reinforcement, though I don't have a strong view on the ratio yet.
 
-But the bet is simple: a model that learns how to find things should beat a same-sized model that memorized things, on everything except closed-book trivia. If data and reasoning are separable, the weights we currently spend on being an encyclopedia are the cheapest capability gain available.
+Still, the bet feels simple to me. A model that learned how to find things should beat a same-sized model that memorized things on basically everything short of closed-book trivia, and if data and reasoning really are separable, the weights we currently burn on being an encyclopedia are the cheapest capability gain sitting around.
 
 <BlogFooter metadata={metadata} />
