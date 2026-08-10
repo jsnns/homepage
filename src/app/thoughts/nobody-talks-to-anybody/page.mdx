@@ -1,0 +1,44 @@
+import { BlogHeader } from "@/components/BlogHeader";
+import { BlogFooter } from "@/components/BlogFooter";
+import { enhanceMetadata } from "@/data/loaders";
+import meta from "./metadata.json";
+
+export const metadata = enhanceMetadata(meta);
+
+<BlogHeader metadata={metadata} />
+
+_A follow up to [Written for Readers That Didn't Exist Yet](/thoughts/written-for-readers-that-didnt-exist-yet), about what the record made possible._
+
+Watch an ant colony solve a routing problem. No ant messages another ant. Each one reads the trail, does its work, and leaves the trail a little different than it found it; the next ant responds to that. The colony has no meetings, no standups, no handoffs, and it acts coherently anyway, because the coordination lives in the environment instead of in conversation.
+
+Our company works this way now. It took me a while to notice, and longer to say it out loud, but the agents at Spawn don't coordinate by talking to each other. They coordinate by changing the world the next one reads. The record is the trail.
+
+## Deleting the pull request
+
+The clearest place this showed up was code review, where we did something that still sounds reckless when I say it plainly: we deleted the pull request.
+
+Pre-merge review exists for two reasons. Human attention is scarce, and mistakes are expensive to find. Neither held for us anymore. An agent reviews every landing, another watches the deployed system, and a broken master is something an agent fixes in minutes rather than something a team fires drills over. So gating every change behind twenty minutes of CI stopped protecting us and started costing us; it made master drift far away from the state of the world, which in a fast-moving company is its own kind of bug.
+
+The replacement rule fits in a sentence. If a change is reversible, land it immediately and review the landed thing; if it's irreversible, first try to make it reversible, and only if you can't does it become a gate you think hard about. We call it land-then-look. Review didn't get weaker, it moved. Findings arrive as fast-follow patches on the thing that shipped, and one mind still attacks what another built. We deleted the waiting, not the review.
+
+The merge is the message. Nothing announces the work; the work announces itself, and whatever should respond to it responds because it landed. Median time from opening a change to shipping it fell from about half an hour to under two minutes.
+
+## Culture changes are tooling changes
+
+Adopting this was harder than deciding it, and the failures were instructive because none of them were arguments. They were tools.
+
+For days after the rule was law, I kept catching the system waiting on green. Every time I dug in, the cause was the same shape: some piece of machinery quietly enforcing the old world. The merge tool refused to press while checks were pending, because it was built when pending meant danger. A classifier meant to flag irreversible work had listed the entire product as irreversible, which meant the exception had eaten the rule. Two instruction files written weeks apart gave opposite orders thirty lines from each other, and the agents obeyed both, in different lanes, correctly.
+
+In a human company, a culture change rolls out through repetition: you say the thing in enough meetings that behavior slowly bends. Here, repetition did nothing until the tools changed, and then behavior changed instantly and completely. I found that clarifying. Culture in a company of agents isn't what you say; it's what the machinery permits. If you want the new value to hold, you don't preach it, you patch it in.
+
+The dissent resolved the same way, mechanically. One teammate pointed out that pull requests are very human-shaped, and he's right, so the lane rule reflects it: land-then-look is the default for a builder's own work, and any human who asks for review before landing gets it. Another worried about big features landing half-broken and blocking everyone else, which happened exactly once before the answer arrived, and the answer wasn't a gate. It was keeping landings small and making a not-working state loud the day it lands.
+
+## A trail made of prose
+
+There's a word for coordination through traces left in the environment: stigmergy. Termites building a mound, ants on a pheromone trail. It's the oldest trick in the book for getting coherent behavior out of many small workers with no manager, and it works because the environment is the memory, so no worker needs to hold the plan.
+
+But there's one difference from the mound worth naming. Termites coordinate through traces on blind instinct. Our trail is prose. The traces have authors, dates, arguments, and receipts, and the things reading them understand what they read. When our agents audited the landing system itself, they didn't just find defects; they named the tradeoff we'd chosen and wrote it down so it would be chosen rather than discovered. Ants don't do that.
+
+A colony whose pheromone trail is written argument is a new kind of organism. I run one, at small scale, and the honest report is that it mostly runs itself, fails in ways it can explain, and gets faster every time the trail gets richer. I don't think anyone knows yet how big it can get.
+
+<BlogFooter metadata={metadata} />
