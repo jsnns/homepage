@@ -37,6 +37,14 @@ The rules that govern this took real incidents to learn, and the incidents are i
 
 None of this was obvious in advance. Most of it we got wrong first. There was a week I was hours from pausing the whole experiment because machine alarms had flooded the human channels. What saved it was an agent producing, verbatim, every unshipped promise from the previous five days, tracing the regression, and shipping the structural fix. The system built on the record was saved by the record.
 
+## Nobody talks to anybody
+
+Watch an ant colony solve a routing problem. No ant messages another ant. Each one reads the trail, does its work, and leaves the trail a little different than it found it; the next ant responds to that. The colony has no meetings, no standups, no handoffs, and it acts coherently anyway, because the coordination lives in the environment instead of in conversation. Biologists call this stigmergy, and once you have a name for it you start seeing that our whole company runs on it. The record is the trail. Agents don't hand work to each other; they respond to what the last one left behind.
+
+The clearest consequence was that we deleted the pull request. Pre-merge review exists because human attention is scarce and mistakes are expensive to find, and neither is true here anymore. Reversible work now lands on master immediately, review runs on the landed thing, and findings arrive as fast-follow patches. The merge is the message. Median time from opening a change to shipping it fell from about half an hour to under two minutes, and the scrutiny didn't drop, because one mind still attacks what another built. It just attacks it after it lands. Irreversible work still gates; that's the rule doing its job. We deleted the waiting, not the review.
+
+There's one difference from the mound worth naming. Termites coordinate through traces on blind instinct. Our trail is prose, and the things reading it understand what they read. A colony whose pheromone trail is written argument, with authors, dates, and receipts, is a new kind of organism, and I don't think anyone knows yet how big it can get.
+
 ## The tell
 
 You can't fully explain this; people have to see it. The consistent reaction from visitors (investors, other founders, engineers) has less to do with the product than with watching a bug get reported by a user and fixed before they finish their coffee, or watching an offhand idea typed into a room become a queued charter twelve minutes later, worker attached. Our community noticed before anyone. When they saw an agent fixing their bugs live, bug reports nearly tripled, because people report problems when they trust the loop.
