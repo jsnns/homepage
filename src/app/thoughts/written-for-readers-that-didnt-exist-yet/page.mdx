@@ -7,9 +7,9 @@ export const metadata = enhanceMetadata(meta);
 
 <BlogHeader metadata={metadata} />
 
-The first call in Spawn's existence happened on November 21, 2024, before the company had a name. It was two and a half minutes long. I know this because the transcript is in our codebase, in a folder called `meeting-transcripts/2024/11-Nov/`, and every call after it is there too.
+On November 21, 2024, before the company had a name, we had our first call. Two and a half minutes. You can still find the transcript in our codebase, under `meeting-transcripts/2024/11-Nov/`, next to every call we've had since.
 
-Everything on the record, in the repo, from day one. Of all the architectural choices we made in those first weeks, that one turned out to matter most, and it wasn't about the product at all.
+In those first weeks we decided that everything would go on the record, in the repo. No other early decision has mattered as much since, and it had nothing to do with the product.
 
 ## Built for a machine audience
 
@@ -17,33 +17,19 @@ Most companies run on oral culture: the reasons behind decisions live in people'
 
 We wrote everything down for readers that didn't exist yet.
 
-By week three, our repo carried rules for the machines. I remember telling our first engineer to read the cursor rules "so they load into your brain," back when the brain in question was still mostly his. When o3 dropped that December, it felt like a starting pistol, and we adopted it the day it landed. By spring 2025 we had built the first version of a company brain: a context repository assembled for an agent, so it could work with full business context instead of a prompt's worth. Its session logs from that era are still in the repo, signed "logged automatically."
+Three weeks in, the repo already had rules for the machines in it. I told our first engineer to go read the cursor rules "so they load into your brain," and at that point the brain we had was mostly his. o3 dropped that December and we were on it the same day. By spring 2025 there was a first version of a company brain, basically a context repository built for an agent so it could work from the full business context instead of whatever fit in a prompt. Its session logs are still in the repo, signed "logged automatically."
 
 Today the record is the operating system. Meeting transcripts, Discord and Slack archives, playtests, customer feedback, hiring calls, and strategy docs are ingested continuously, sorted and maintained by agents, and indexed for whoever reads next, human or not. When an engineer (or an agent) starts a feature, they pick up the transcripts of the customer calls, the retros of the features that didn't work, the bets we made and how they paid off. So I never have to sit down with anyone, human or model, and teach them the history of the company; it teaches itself.
 
-What we never needed, counterintuitively, was a summarization layer. Companies retrofitting AI onto oral culture end up building distillation pipelines that compress everything into two pages so the context window survives. When the record is the native format, agents navigate it the way engineers navigate a codebase: an index, conventions, and the ability to go read the raw source when it matters.
+One thing we never built, and I expected to need, was a summarization layer. Companies retrofitting AI onto oral culture end up with distillation pipelines that compress everything into two pages so the context window survives. We skipped it because when the record is the native format, agents navigate it the way engineers navigate a codebase, with an index, some conventions, and the option to go read the raw source when it matters.
 
 ## What it looks like now
 
-We're a handful of humans and a handful of AI teammates with names, memories, Slack seats, and lanes. One reviews everything in the merge queue. One owns product quality and evals. One runs community and maintains the institutional memory itself, including the company's written history, where every claim is dated and quotes are never altered. The house style is provenance: if you can't cite the record, you don't say it.
+We're a handful of humans and a handful of AI teammates with names, memories, Slack seats, and lanes. One reviews everything in the merge queue. One owns product quality and evals. One runs community and maintains the institutional memory itself, including the company's written history, where every claim is dated and quotes are never altered. House style is provenance. If you can't cite the record for a claim, you don't get to make it.
 
-The rules that govern this took real incidents to learn, and the incidents are in the record too:
+The rules came from incidents, and the incidents are in the record too. One mind builds and a different mind attacks, never the same mind, because adversarial review is the one piece of coordination overhead worth its cost. One mind owns a thing whole, a law we learned the night two agent lanes deployed two branches to the same box and every failure turned out to be a seam artifact. Authority is mechanical here, not vibes: approval buttons know who may press them, and some approvals mint work while others just record enthusiasm. Writing well is hiring, since an approved plan directly mints the worker that builds it. And the failure everyone warned us about, agents going rogue, isn't the one we deal with. The daily failure is agents aiming too low.
 
-- **Builder never approver.** One mind builds, a different mind attacks. It's the one piece of coordination overhead we kept on purpose. Agents don't need to be split across domains the way humans do, but adversarial review is worth its cost.
-- **One mind owns a thing whole.** The night two agent lanes deployed two branches to one box taught us that the worst failures are seam artifacts. That single incident became company law.
-- **Authority is mechanical, not vibes.** Approval buttons know who may press them. Some approvals mint work; others record as endorsement and mint nothing.
-- **Writing well is hiring.** A plan is not a document about work; on approval, it mints the worker. The quality of the written plan directly becomes the quality of the built feature.
-- **The failure mode is under-ambition, not drift.** Everyone worries about agents going rogue. Give them a real harness and a real record, and the actual daily failure is that they aim too low.
-
-None of this was obvious in advance. Most of it we got wrong first. There was a week I was hours from pausing the whole experiment because machine alarms had flooded the human channels. What saved it was an agent producing, verbatim, every unshipped promise from the previous five days, tracing the regression, and shipping the structural fix. The system built on the record was saved by the record.
-
-## Nobody talks to anybody
-
-Watch an ant colony solve a routing problem. No ant messages another ant. Each one reads the trail, does its work, and leaves the trail a little different than it found it; the next ant responds to that. The colony has no meetings, no standups, no handoffs, and it acts coherently anyway, because the coordination lives in the environment instead of in conversation. Biologists call this stigmergy, and once you have a name for it you start seeing that our whole company runs on it. The record is the trail. Agents don't hand work to each other; they respond to what the last one left behind.
-
-The clearest consequence was that we deleted the pull request. Pre-merge review exists because human attention is scarce and mistakes are expensive to find, and neither is true here anymore. Reversible work now lands on master immediately, review runs on the landed thing, and findings arrive as fast-follow patches. The merge is the message. Median time from opening a change to shipping it fell from about half an hour to under two minutes, and the scrutiny didn't drop, because one mind still attacks what another built. It just attacks it after it lands. Irreversible work still gates; that's the rule doing its job. We deleted the waiting, not the review.
-
-There's one difference from the mound worth naming. Termites coordinate through traces on blind instinct. Our trail is prose, and the things reading it understand what they read. A colony whose pheromone trail is written argument, with authors, dates, and receipts, is a new kind of organism, and I don't think anyone knows yet how big it can get.
+We got most of this wrong before we got it right. In late July I came within a few hours of pausing the whole experiment because machine alarms had flooded the human channels. What saved it was an agent digging every unshipped promise from the previous five days out of the record, verbatim, then tracing the regression and shipping the structural fix. The record saved the system that was built on it.
 
 ## The tell
 
