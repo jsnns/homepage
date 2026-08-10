@@ -7,79 +7,67 @@ export const metadata = enhanceMetadata(meta);
 
 <BlogHeader metadata={metadata} />
 
-For months, Cursor was just another wrapper on top of GPT-4—sluggish, unreliable, easy to dismiss. Then Claude 3.5 Sonnet arrived. Same product, same codebase, and suddenly they're doing $100M ARR and every developer I know won't shut up about it.
+For months Cursor was just another wrapper on top of GPT-4. Sluggish, unreliable, the kind of tool you try for an afternoon and uninstall. Then Claude 3.5 Sonnet came out, and with the same product and mostly the same codebase they're suddenly doing $100M ARR, and every developer I know won't shut up about it.
 
-They didn't build a product so much as a sail: a simple structure positioned to catch capability the moment it arrived.
+What they built wasn't really a product. It was a sail, a simple structure that sat there waiting to catch capability whenever it showed up.
 
 ## Engines and sails
 
-That's the distinction I think separates the AI companies that will survive from the ones that won't.
+That distinction is, I think, what separates the AI companies that will survive from the ones that won't.
 
-**Engines** are complex architectures optimized for today's models. They're impressive now and worthless when the models improve.
+An engine is a complex architecture built around whatever today's models can't do, and it looks impressive right up until the models improve, at which point it's worthless. A sail doesn't look like much at all, just a simple structure riding whatever model sits underneath it. Sails barely work today. Then some Tuesday a lab ships a new model, and yesterday's embarrassing demo is the thing everyone's talking about.
 
-**Sails** are simple architectures that get more powerful as models improve. They barely work today and dominate tomorrow.
+Most founders are building engines. Take fine-tuning. What you're actually doing there is spending thousands of dollars to teach GPT-4 to be a little less bad at your one use case, building a workaround for limitations that are already on somebody else's roadmap to get removed. It reminds me of the companies that spent 2007 perfecting their mobile-optimized websites while the iPhone was on its way. Every dollar that goes into fine-tuning is a dollar bet against the models getting better, and the models keep getting better.
 
-Most founders are building engines. Think about what fine-tuning actually is: spending thousands of dollars teaching GPT-4 to be slightly less bad at your specific use case—an elaborate workaround for today's limitations. It's spending 2007 perfecting your mobile-optimized website while the iPhone is coming. Every dollar spent on fine-tuning is a dollar bet against model improvements.
+## We built tool use a year early
 
-## I built tool use before it was cool
+Back in 2022 I was building Pluto, where for a while the job was mostly watching GPT-3 fail at financial analysis. Wrong math, usually. It lost track of anything past a couple of variables, and it kept inventing spreadsheet functions that have never existed in any spreadsheet. What everyone did about it at the time was pile on more scaffolding, prompt chains and token-optimized templates and validation pipelines that ran four or five stages deep.
 
-In 2022, I was building Pluto. We watched GPT-3 try to analyze financial data and fail: it couldn't do math, couldn't track multiple variables, hallucinated spreadsheet functions. The standard response was elaborate prompt chains, token-optimized templates, multi-stage validation pipelines.
+I went the other way and just let the model call functions. Something like 500 lines of code that said, here are some tools, use them. Function calling wouldn't show up in a commercial API for another year.
 
-I built something simpler—I just let the model call functions. About 500 lines of code that said: here are tools, use them. This was a full year before function calling showed up in any commercial API.
+GPT-3 mostly couldn't figure it out. Demos were painful to sit through, investors passed, and the question we kept getting was why anyone would build features for capabilities that don't exist. Then GPT-4 arrived, learned to use tools, and the same architecture worked without us changing anything. Eighteen months after those painful demos Robinhood acquired Pluto, and that architecture was a big part of why.
 
-GPT-3 mostly couldn't figure it out. Our demos were painful, and investors passed—why build features for capabilities that don't exist? But when GPT-4 arrived, and more importantly when it learned to use tools, the same architecture worked with no changes. Eighteen months after those painful demos, Robinhood acquired Pluto, and that architecture was a big part of why.
-
-I didn't predict GPT-4's features. I built infrastructure for how humans naturally think—"I need to check this data, run this calculation, compare these things"—and waited for a model that could drive it.
+I didn't predict GPT-4's features. I built infrastructure around how people naturally think about the work ("check this data, run this calculation, compare these") and waited for a model that could drive it.
 
 ## Complexity is a bet against progress
 
-Look at any AI startup's architecture. If it would have been impressive in 2023, it's in trouble.
+Look at almost any AI startup's architecture, and if it would have been impressive in 2023, it's probably in trouble now.
 
-RAG pipelines are a monument to 8K context windows; frontier models are heading toward million-token context. Vector databases are infrastructure for models that can't remember; as context and retrieval-by-attention improve, that need shrinks. Heavy multi-agent orchestration is a workaround for models that can't yet hold a complex task; each model generation absorbs more of it.
+RAG pipelines are a monument to the 8K context window, and frontier models are already heading toward a million tokens. Vector databases exist because models couldn't remember, a need that shrinks every time context and retrieval get better. All that heavy multi-agent orchestration you see around is the same kind of thing, a workaround for models that couldn't hold a whole task in their heads yet. Every model generation absorbs a little more of it. None of these are features, really. They're monuments to some model's failures, and every major release re-sorts the industry, because architectures built around old limitations lose their reason to exist while the simple ones just inherit the new capability, free.
 
-These aren't features. They're monuments to the current model's failures. Every major model release re-sorts the industry: architectures built around the old limitations lose their reason to exist, and the simple ones inherit the new capability for free.
-
-Prompt engineering follows the same curve. It's not that the people are bad—it's that the job is a workaround, and workarounds have a half-life. "Prompt engineer" will sound like "webmaster." In 2005 every company needed one; in 2010 every 12-year-old could build a website.
+Prompt engineering rides the same curve down. The people aren't bad at their jobs. The job itself is a workaround, and workarounds have a half-life, so in a few years "prompt engineer" is going to sound the way "webmaster" does now. Every company needed a webmaster in 2005, and by 2010 any 12-year-old could build a website.
 
 ## The workflow extinction event
 
-Here's the pattern underneath all of this:
+There's a bigger pattern under all of this. Work used to be human to human. At the moment it's human to AI to AI to human, people bookending the machines, and eventually most of it is going to be AI to AI with no bookends at all.
 
-Human → Human (how work used to happen)  
-Human → AI → AI → Human (how work happens now)  
-AI → AI (how work will happen)
-
-If your product helps humans create things for other humans *in a business context*, you're building for a shrinking use case. Landing page builders, business document tools, sales email software—these all assume a human on both ends of the transaction. The entire B2B SaaS industry is predicated on humans needing interfaces. AIs don't need interfaces. They need APIs.
+So if your product helps humans create things for other humans *in a business context*, you're building for a shrinking use case. Landing page builders, business document tools, sales email software: all of it assumes there's a human on both ends of the transaction. The entire B2B SaaS industry is basically predicated on humans needing interfaces, and AIs don't need interfaces, they need APIs.
 
 ## The $4.2M signal
 
-A16Z published data showing consumer AI companies hit $4.2M ARR in their first year while B2B companies hit $2M, and everyone acted confused about consumer beating enterprise.
+A16Z put out data a while back on first-year revenue: consumer AI companies were hitting $4.2M ARR against $2M for B2B, and everyone acted confused that consumer was beating enterprise.
 
-But look closer at those "consumer" companies: FaceTune for aspiring influencers, AI writers for newsletter hustlers, headshot apps for LinkedIn. That's not consumer—it's prosumer. People trying to make money will pay $30/month for any edge.
+Look closer at those "consumer" companies, though. FaceTune for aspiring influencers, AI writing for the newsletter hustlers, headshot apps for LinkedIn. None of that is really consumer. It's prosumer, people trying to make money, and someone trying to make money will pay $30 a month for any edge you hand them.
 
-What it proves is that humans will pay for AI leverage. And when people pay $30/month to work, imagine what they'll pay to play. The real consumer platforms—the ones that capture pure human creative expression—haven't arrived yet. We're in 1999: people can build personal websites, but YouTube doesn't exist.
+Still, it proves the thing that matters, which is that humans will pay for AI leverage. If they'll pay $30 a month to work, what do they pay to play? The real consumer platforms, the ones that capture pure creative expression, haven't shown up yet. It's 1999 out here. Everyone can build a personal website, and YouTube doesn't exist.
 
 ## Only two things survive
 
-In five years, I think only two types of AI companies exist:
+Five years out, my guess is only two kinds of AI company are left. One is infrastructure for AI-to-AI communication, boring but necessary, and honestly humans probably don't even get to build that one for long, since the AIs will end up writing their own protocols. The other is platforms for human creative expression, people using AI to make things for other people to experience because they want to, not because anyone made them.
 
-1. **Infrastructure for AI-to-AI communication.** Boring but necessary—and probably not built by humans for long. AIs will build their own protocols.
-
-2. **Platforms for human creative expression.** Where humans use AI to create things for other humans to experience. Not because they have to, but because they want to.
-
-"AI-assisted business workflows" is the unstable middle: either the AI does it completely, or humans do it for fun. We saw this shape with the internet—the tools (FrontPage, Dreamweaver) died, the platforms (YouTube, Instagram, TikTok) won. AI follows the same pattern, faster.
+"AI-assisted business workflows" is the unstable middle. Either the AI does the whole thing or humans do it for fun. We watched this exact shape play out with the internet, where the tools (FrontPage, Dreamweaver) died and the platforms (YouTube, Instagram, TikTok) won. AI runs the same movie faster.
 
 ## The wrong optimization
 
-The common failure mode: watch today's model fail at something, then build elaborate infrastructure to fix it. That's solving for a model that will be obsolete before your next board meeting. The founders who win don't build for what AI can't do—they build for what humans are trying to do.
+The common failure mode goes like this. You watch today's model fail at something, you build elaborate infrastructure to fix it, and now you're solving for a model that will be obsolete before your next board meeting. The founders who win aren't building for what AI can't do. They're building for what humans are trying to do.
 
-A useful heuristic: when your product is embarrassingly simple, you might have built a sail. When you're proud of your technical complexity, you definitely built an engine.
+One heuristic I like: if your product is embarrassingly simple, you might have built a sail. If you're proud of your technical complexity, you almost definitely built an engine.
 
-In 18 months, everything models can do 80% well today, they'll do well enough to deploy. That last 20% is the difference between demo and deployment—and when it closes, every optimization for today's constraints becomes irrelevant. Every workaround worthless. Every moat drained.
+Within 18 months or so, everything models can do 80% well today they'll do well enough to deploy, and that last 20% is the whole difference between demo and deployment. When it closes, every optimization for today's constraints becomes irrelevant, every workaround worthless, every moat drained.
 
 Except sails. Sails just catch more wind.
 
-Cursor built a simple container for AI coding capability and waited. At Pluto, I built simple tool use and waited. The pattern is the same: don't compete on compensating for the model. Build the simple thing, position it where the wind will be strongest, and let the models make it good.
+Cursor built a simple container for AI coding capability and waited. At Pluto I built simple tool use and waited. The pattern is the same one: don't compete on compensating for the model. Build the simple thing, put it where the wind will be strongest, and let the models make it good.
 
 Because when the water rises, the engines go down with it.
 
